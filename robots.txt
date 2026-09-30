@@ -1,0 +1,5 @@
+# All content on this site is public.
+User-agent: *
+Allow: /
+
+Sitemap: https://omadbekxoshimov.github.io/sitemap.xml

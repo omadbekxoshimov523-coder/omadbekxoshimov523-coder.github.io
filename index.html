@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SEO
+     ══════════════════════════════════════════════════════════════════════════ -->
+<title>Xoshimov Omadbek — Full-Stack Web Developer | React · Node · Python</title>
+<meta name="description" content="Xoshimov Omadbek is a full-stack web developer from Tashkent, Uzbekistan building fast, production-ready web apps with React, Next.js, Node.js, Python, PostgreSQL and Docker.">
+<meta name="author" content="Xoshimov Omadbek">
+<meta name="keywords" content="full stack developer, react developer, next.js, node.js, python developer, postgresql, docker, web developer tashkent, uzbekistan, freelance web developer">
+<meta name="color-scheme" content="dark light">
+<!-- Single (non media-scoped) theme-color: the inline script below rewrites it
+     whenever the theme resolves, so a manual toggle also repaints the browser UI. -->
+<meta name="theme-color" content="#07070b" id="themeColor">
+<link rel="canonical" href="https://omadbekxoshimov.github.io/">
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     Open Graph / Twitter
+     ══════════════════════════════════════════════════════════════════════════ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Xoshimov Omadbek">
+<meta property="og:title" content="Xoshimov Omadbek — Full-Stack Web Developer">
+<meta property="og:description" content="I design and build fast, production-ready web applications — from React front-ends to Node.js & Python APIs, PostgreSQL schemas and Docker deployments.">
+<meta property="og:url" content="https://omadbekxoshimov.github.io/">
+<meta property="og:image" content="https://omadbekxoshimov.github.io/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Xoshimov Omadbek — Full-Stack Web Developer">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Xoshimov Omadbek — Full-Stack Web Developer">
+<meta name="twitter:description" content="React · Next.js · Node.js · Python · PostgreSQL · Docker. Based in Tashkent, Uzbekistan.">
+<meta name="twitter:image" content="https://omadbekxoshimov.github.io/assets/og-image.png">
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     Icons
+     ══════════════════════════════════════════════════════════════════════════ -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
+<!-- iOS ignores SVG for the home-screen icon, so this one must be PNG -->
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     Fonts — Space Grotesk (display) + Inter (body), swap + preconnect
+     ══════════════════════════════════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+
+<!-- The hero portrait is the LCP element — hint the browser before HTML parsing finishes. -->
+<link rel="preload" as="image" href="assets/me.png" fetchpriority="high">
+
+<link rel="stylesheet" href="css/styles.css">
+
+<!-- Apply the saved/system theme before first paint so there is no flash. -->
+<script>
+  (function () {
+    // Arm the JS-only reveal states. Everything hidden by `.js .reveal` is
+    // un-hidden by this failsafe, but ONLY if main.js never showed up —
+    // main.js sets data-js-live synchronously, and stripping `js` while it is
+    // alive would skip the reveal for every section still below the fold.
+    // Timers only: never invoke this during parse, main.js is deferred.
+    var el = document.documentElement;
+    el.classList.add('js');
+    el.classList.add('preloader-lock');
+
+    function failsafe() {
+      el.classList.remove('preloader-lock');
+      if (el.hasAttribute('data-js-live')) return;
+      el.classList.remove('js');
+      el.classList.add('preloader-fail');
+    }
+    setTimeout(failsafe, 4000);
+    window.addEventListener('load', function () { setTimeout(failsafe, 1500); });
+
+    try {
+      var saved = localStorage.getItem('theme');
+      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+      var m = document.getElementById('themeColor');
+      if (m) m.setAttribute('content', theme === 'light' ? '#f6f6fa' : '#07070b');
+    } catch (e) { /* private mode — fall through to the dark default */ }
+  })();
+</script>
+</head>
+
+<body>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SVG SPRITE — every icon on the page. Inlined = zero extra requests.
+     ══════════════════════════════════════════════════════════════════════════ -->
+<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- ── UI ────────────────────────────────────────────────────────────── -->
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-arrow-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 13 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="13" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M7 7.5h.01M7 16.5h.01" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-bot" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="12" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 4.5V8M8.5 13.5v1.5M15.5 13.5v1.5M9.5 17h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="3.2" r="1.3" fill="currentColor"/></symbol>
+    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M13.5 3.5c3.5-1 6 .5 6 .5s1.5 2.5.5 6c-1 3.5-5 7.5-5 7.5L11 13.5s3.5-4 5-7.5c.7-1.9-.5-2.5-2.5-2.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="14.5" cy="8.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 15.5c-1.5 0-3 1.5-3 4 2.5 0 4-1.5 4-3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 8.5 4.5L12 12 3.5 7.5 12 3zM4 12l8 4.2 8-4.2M4 16.2l8 4.3 8-4.3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5c.6 5.2 3.8 8.4 9 9-5.2.6-8.4 3.8-9 9-.6-5.2-3.8-8.4-9-9 5.2-.6 8.4-3.8 9-9z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.8" y="5" width="18.4" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4 7.5 8 5.5 8-5.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M15.5 5.5v-1a1 1 0 0 0-1-1h-9a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.8a10.2 10.2 0 0 0-3.23 19.9c.51.09.7-.22.7-.49l-.01-1.9c-2.5.55-3.35-.6-3.5-1.25-.1-.3-.6-1.25-1.15-1.5-.35-.2-.9-.7-.02-.72.8-.02 1.4.75 1.6 1.05.9 1.5 2.35 1.07 2.93.82.1-.64.35-1.08.63-1.33-2.2-.25-4.55-1.1-4.55-4.9 0-1.08.4-1.97 1-2.66-.1-.25-.43-1.27.1-2.65 0 0 .82-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.93-1.3 2.75-1.02 2.75-1.02.53 1.38.2 2.4.1 2.65.6.69 1 1.58 1 2.66 0 3.82-2.35 4.65-4.56 4.9.36.31.68.92.68 1.85l-.01 2.75c0 .27.19.59.7.49A10.2 10.2 0 0 0 12 1.8z"/></symbol>
+    <symbol id="i-telegram" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3 18.8 19.4c-.24 1.06-.87 1.32-1.76.82l-4.87-3.6-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.98 9.05-8.18c.4-.35-.08-.54-.6-.2L6.1 13.05 1.3 11.5c-1.04-.32-1.06-1.04.22-1.55L20.5 2.8c.87-.32 1.63.2 1.4 1.5z"/></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3v-11zm7 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17" cy="7" r="1.25" fill="currentColor"/></symbol>
+    <symbol id="i-docker" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5h13.2a2.4 2.4 0 0 1 2.4 2.4c0 2.1-1.6 3.2-3.6 3.2H4.2A1.2 1.2 0 0 1 3 14.9z"/><path d="M7 10.5V8.1M10.4 10.5V8.1M13.8 10.5V8.1"/><path d="M20.6 11.2c.7-1.6 2.3-2.3 2.3-2.3s.2 1.5-.7 2.8c-.6.9-1.6 1.4-1.6 1.4"/><path d="M6.4 16.1v1.7M9.8 16.1v1.7M13.2 16.1v1.7"/></g></symbol>
+
+    <!-- ── Tech marks (simplified, currentColor) ────────────────────────── -->
+    <symbol id="t-react" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="2.1"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></symbol>
+    <symbol id="t-node" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 2.6 21 7.4v9.2L12 21.4 3 16.6V7.4z"/><path d="M9.4 15.4V9.2l5.4 3.1v3.1z" stroke-linejoin="round"/></symbol>
+    <symbol id="t-python" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2.8c-3 0-4.4.8-4.4 2.6v2.4h4.6M12 2.8c3 0 4.4.8 4.4 2.6v3.2H12"/><rect x="7.6" y="2.8" width="4.6" height="5" rx="1.4"/><rect x="11.8" y="11.2" width="4.6" height="5" rx="1.4"/><path d="M12 21.2c3 0 4.4-.8 4.4-2.6v-2.4H12M12 21.2c-3 0-4.4-.8-4.4-2.6v-3.2H12"/></symbol>
+    <symbol id="t-docker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="10.5" width="17" height="6" rx="1.6"/><path d="M3.6 10.5 2 8.2h2.4l1.4 2.3M6 10.5 4.6 8.2M8.4 10.5 7 8.2M10.8 10.5 9.4 8.2"/><rect x="6" y="7.4" width="2.4" height="2.4" rx=".6"/><rect x="9.2" y="7.4" width="2.4" height="2.4" rx=".6"/><rect x="6" y="4.6" width="2.4" height="2.4" rx=".6"/><circle cx="5.2" cy="19.6" r="1"/><circle cx="8.6" cy="20.4" r="1"/><circle cx="12.2" cy="19.4" r="1"/></symbol>
+    <symbol id="t-git" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3.4"/><path d="M12 8.6V3.5M12 15.4v5.1M8.9 13.6 4 17.4M15.1 10.4 20 6.6" stroke-linecap="round"/></symbol>
+    <symbol id="t-ts" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="4.4"/><path d="M6.6 10.2h3.2M8.2 10.2v6M15 10.2c1.9 0 2.6.9 2.6 2.9v3.1M15 13.4h2.4" stroke-linecap="round"/></symbol>
+    <symbol id="t-postgres" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="12" cy="6.2" rx="7.6" ry="3"/><path d="M4.4 6.2v11.6c0 1.65 3.4 3 7.6 3s7.6-1.35 7.6-3V6.2"/><path d="M4.4 12c0 1.65 3.4 3 7.6 3s7.6-1.35 7.6-3"/></symbol>
+    <symbol id="t-next" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" rx="9.2"/><path d="M8.6 16V8.4l7.6 8.4M15.2 8.4V16" stroke-linecap="round"/></symbol>
+    <symbol id="t-tailwind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 12c0-3.3 2.2-5.5 5.2-5.5 4 0 4.2 3 6.4 3 1.7 0 2.6-1 2.6-2.6M3 18c0-3.3 2.2-5.5 5.2-5.5 4 0 4.2 3 6.4 3 1.7 0 2.6-1 2.6-2.6"/></symbol>
+    <symbol id="t-graphql" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2.9 20.5 7.5v9L12 21.1 3.5 16.5v-9z"/><path d="M12 2.9v4.3m0 9.6v4.3M3.5 7.5l4.2 2.1m8.6 4.8 4.2 2.1M20.5 7.5l-4.2 2.1M7.7 16.5l4.2-2.4M15.9 9.6 20.5 16.5M3.5 16.5l4.2-2.1M12 7.2 7.7 16.5M12 7.2l4.3 9.3" stroke-linejoin="round"/></symbol>
+    <symbol id="t-redis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 6.4 20.5 10 12 13.6 3.5 10z"/><path d="m3.5 13 8.5 3.6 8.5-3.6"/></symbol>
+    <symbol id="t-figma" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2.6h3.6a3.6 3.6 0 0 1 0 7.2H12V2.6zM12 9.8h3.6a3.6 3.6 0 0 1 0 7.2H12V9.8zM12 17h3.6a3.6 3.6 0 1 1-3.6 3.6V17z"/><path d="M8.4 2.6h3.6v7.2H8.4a3.6 3.6 0 1 1 0-7.2zM8.4 9.8H12V17H8.4a3.6 3.6 0 1 1 0-7.2z"/></symbol>
+    <symbol id="t-prisma" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21.4 15.6 12 21.4 2.6 15.6V8.4L12 2.6l9.4 5.8z"/><path d="M12 21.4V2.6"/></symbol>
+    <symbol id="t-linux" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 7.5c0-2 1.4-3.4 3-3.4s3 1.4 3 3.4c0 1.4-.5 2.3-.5 3.4 0 1.9 2.5 2.6 2.5 5.4 0 2.1-2.3 3.6-5 3.6s-5-1.5-5-3.6c0-2.8 2.5-3.5 2.5-5.4 0-1.1-.5-2-.5-3.4z"/><circle cx="11" cy="7" r=".6" fill="currentColor"/><circle cx="13" cy="7" r=".6" fill="currentColor"/><path d="M7.6 20.4c.8 1 2.4 1.6 4.4 1.6s3.6-.6 4.4-1.6"/></symbol>
+    <symbol id="t-mongo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2.6c3.3 3 4.6 6.6 4.6 10.2 0 3.3-2 5.6-4.6 8.6-2.6-3-4.6-5.3-4.6-8.6C7.4 9.2 8.7 5.6 12 2.6z"/><path d="M12 3v18"/></symbol>
+  </defs>
+</svg>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     PRELOADER
+     ══════════════════════════════════════════════════════════════════════════ -->
+<div class="preloader" id="preloader" role="status" aria-live="polite" aria-label="Loading portfolio">
+  <div class="preloader__inner">
+    <p class="preloader__brand">OMADBEK<span>.</span></p>
+    <div class="preloader__track"><span class="preloader__bar" id="preloaderBar"></span></div>
+    <p class="preloader__pct"><span id="preloaderPct">0</span>%</p>
+  </div>
+  <!-- Curtains that split apart to reveal the page -->
+  <span class="curtain curtain--t"></span>
+  <span class="curtain curtain--b"></span>
+</div>
+
+<!-- Skip link for keyboard / screen-reader users -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Ambient layers: gradient mesh, floating orbs, film grain -->
+<div class="bg-mesh" aria-hidden="true">
+  <span class="orb orb--1"></span>
+  <span class="orb orb--2"></span>
+  <span class="orb orb--3"></span>
+</div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- Custom cursor (pointer-fine devices only) -->
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor__dot"></span>
+  <span class="cursor__ring"></span>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════════════════════════════════════════ -->
+<header class="nav" id="nav">
+  <div class="nav__progress" id="scrollProgress"><span></span></div>
+
+  <div class="nav__inner container">
+    <a class="logo" href="#hero" aria-label="Xoshimov Omadbek — home">
+      <span class="logo__mark" aria-hidden="true">&lt;/&gt;</span>
+      <span class="logo__text">omadbek<span class="logo__dot">.</span></span>
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#about"       class="nav__link">About</a>
+      <a href="#skills"      class="nav__link">Skills</a>
+      <a href="#projects"    class="nav__link">Work</a>
+      <a href="#experience"  class="nav__link">Journey</a>
+      <a href="#services"    class="nav__link">Services</a>
+      <a href="#contact"     class="nav__link">Contact</a>
+      <span class="nav__pill" id="navPill" aria-hidden="true"></span>
+    </nav>
+
+    <div class="nav__actions">
+      <!-- The label states the action, so this is a plain button, not a toggle:
+           adding aria-pressed here would claim a state the label contradicts.
+           main.js rewrites the label on every change. -->
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to light theme">
+        <svg class="icon icon--sun"  aria-hidden="true"><use href="#i-sun"/></svg>
+        <svg class="icon icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
+      </button>
+      <a class="btn btn--sm btn--ghost nav__cta" href="#contact" data-magnetic>
+        Let&#39;s talk
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+      </a>
+      <button class="icon-btn nav__burger" id="navToggle" type="button"
+              aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="drawer" id="mobileMenu" hidden>
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="#about"><span class="drawer__num">01</span> About</a>
+    <a href="#skills"><span class="drawer__num">02</span> Skills</a>
+    <a href="#projects"><span class="drawer__num">03</span> Work</a>
+    <a href="#experience"><span class="drawer__num">04</span> Journey</a>
+    <a href="#services"><span class="drawer__num">05</span> Services</a>
+    <a href="#contact"><span class="drawer__num">06</span> Contact</a>
+  </nav>
+  <div class="drawer__foot">
+    <a href="mailto:omadbekxoshimov792@gmail.com">omadbekxoshimov792@gmail.com</a>
+    <span>Tashkent, Uzbekistan · UTC+5</span>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     1 · HERO
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section class="hero" id="hero" aria-labelledby="heroTitle">
+  <div class="hero__spotlight" id="heroSpotlight" aria-hidden="true"></div>
+
+  <div class="hero__inner container">
+    <div class="hero__copy">
+      <p class="hero__eyebrow reveal">
+        <span class="pulse" aria-hidden="true"></span>
+        Available for new projects · 2026
+      </p>
+
+      <h1 class="hero__title" id="heroTitle">
+        <span class="line"><span class="split" data-split="words">Hi, I&#39;m Omadbek</span></span>
+        <span class="line">
+          <span class="split" data-split="words">a <em>full-stack</em></span>
+        </span>
+        <span class="line">
+          <span class="split" data-split="words">developer.</span>
+        </span>
+      </h1>
+
+      <p class="hero__type reveal">
+        <span class="hero__type-label">I&nbsp;work as a</span>
+        <span class="typewriter" id="typewriter">
+          <span class="typewriter__out" id="typewriterOut">Frontend Engineer</span>
+        </span>
+      </p>
+
+      <p class="hero__lead reveal">
+        Software Engineer &amp; web coder from Tashkent. I turn ideas into fast,
+        accessible, production-ready products — from the React interface down to the
+        PostgreSQL schema and the Docker pipeline that ships it.
+      </p>
+
+      <div class="hero__cta reveal">
+        <a class="btn btn--primary" href="#projects" data-magnetic>
+          View Projects
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="assets/Xoshimov-Omadbek-CV.pdf" download data-magnetic>
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+          Download CV
+        </a>
+      </div>
+
+      <ul class="hero__meta reveal" aria-label="Quick facts">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Tashkent, Uzbekistan</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> React · Node · Python</li>
+        <li><svg class="icon" aria-hidden="true"><use href="#i-server"/></svg> Docker &amp; PostgreSQL</li>
+      </ul>
+    </div>
+
+    <!-- ── Portrait stage: tilt + parallax layers ─────────────────────── -->
+    <div class="hero__stage" id="heroStage">
+      <div class="stage__depth" data-depth="-26" aria-hidden="true"></div>
+      <div class="stage__blob" data-depth="14" aria-hidden="true"></div>
+      <div class="stage__ring"  data-depth="-10" aria-hidden="true"></div>
+
+      <!-- Orbit tracks (CSS-animated; JS only nudges the depth) -->
+      <div class="orbit orbit--back"  data-depth="-34" aria-hidden="true">
+        <span class="chip" style="--a:0deg;   --r:47%"><svg class="icon" aria-hidden="true"><use href="#t-docker"/></svg></span>
+        <span class="chip" style="--a:120deg; --r:47%"><svg class="icon" aria-hidden="true"><use href="#t-postgres"/></svg></span>
+        <span class="chip" style="--a:240deg; --r:47%"><svg class="icon" aria-hidden="true"><use href="#t-python"/></svg></span>
+      </div>
+      <div class="orbit orbit--front" data-depth="30" aria-hidden="true">
+        <span class="chip" style="--a:60deg;  --r:52%"><svg class="icon" aria-hidden="true"><use href="#t-react"/></svg></span>
+        <span class="chip" style="--a:180deg; --r:52%"><svg class="icon" aria-hidden="true"><use href="#t-node"/></svg></span>
+        <span class="chip" style="--a:300deg; --r:52%"><svg class="icon" aria-hidden="true"><use href="#t-git"/></svg></span>
+      </div>
+
+      <div class="stage__portrait" data-depth="18">
+        <!-- The transparent PNG is the canonical asset. A lighter 154 KB variant is
+             served to small screens; swap in a WebP (see README) to cut this further. -->
+        <picture>
+          <source srcset="assets/me-sm.png" media="(max-width: 720px)">
+          <img src="assets/me.png" width="324" height="761" fetchpriority="high"
+               decoding="async" alt="Portrait of Xoshimov Omadbek, full-stack web developer"
+               class="portrait">
+        </picture>
+        <div class="stage__glow" aria-hidden="true"></div>
+      </div>
+
+      <!-- Floating credential badges -->
+      <div class="stage__badge stage__badge--tl" data-depth="-20" aria-hidden="true">
+        <span class="dot dot--live"></span> React &amp; Next.js
+      </div>
+      <div class="stage__badge stage__badge--br" data-depth="24" aria-hidden="true">
+        <span class="dot"></span> PostgreSQL · Docker
+      </div>
+    </div>
+  </div>
+
+  <a class="hero__scroll" href="#about" aria-label="Scroll to about section">
+    <span class="hero__scroll-line" aria-hidden="true"></span>
+    Scroll
+  </a>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     2 · ABOUT
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="about" aria-labelledby="aboutTitle">
+  <div class="container">
+    <header class="sec-head">
+      <p class="sec-head__index reveal"><span>01</span> About</p>
+      <h2 class="sec-head__title reveal" id="aboutTitle">
+        Engineer first.<br><em>Pixel-obsessed</em> second.
+      </h2>
+      <p class="sec-head__sub reveal">
+        I care about the boring parts: database indexes, cold starts, keyboard focus,
+        and error states nobody screenshots. That's the difference between a demo and a product.
+      </p>
+    </header>
+
+    <!-- Animated counters -->
+    <ul class="counters" data-counters>
+      <li class="counter glass reveal">
+        <span class="counter__num" data-count="4" data-suffix="+">0</span>
+        <span class="counter__label">Years experience</span>
+      </li>
+      <li class="counter glass reveal">
+        <span class="counter__num" data-count="25" data-suffix="+">0</span>
+        <span class="counter__label">Projects shipped</span>
+      </li>
+      <li class="counter glass reveal">
+        <span class="counter__num" data-count="20" data-suffix="+">0</span>
+        <span class="counter__label">Technologies</span>
+      </li>
+      <li class="counter glass reveal">
+        <span class="counter__num" data-count="100" data-suffix="%">0</span>
+        <span class="counter__label">Client satisfaction</span>
+      </li>
+    </ul>
+    <!-- ↑ UPDATE the four data-count values above to match reality. -->
+
+    <!-- Bento grid -->
+    <div class="bento">
+      <article class="bento__cell bento__cell--bio glass reveal">
+        <p class="bento__label">The short version</p>
+        <p class="bento__text">
+          I'm a <strong>Software Engineer and web coder</strong> working across the whole stack.
+          I started with markup and CSS, moved into React and Next.js on the front end, and now
+          spend most of my time in Node.js and Python services, PostgreSQL schemas and Docker
+          deployments. I like owning a problem end-to-end — from the first wireframe to the
+          pull request that ships it.
+        </p>
+        <p class="bento__text">
+          When I'm not shipping, I'm usually reading about distributed systems,
+          sketching interface ideas in Figma, or helping other developers on GitHub.
+        </p>
+        <div class="bento__actions">
+          <a class="chip-link" href="https://github.com/omadbekxoshimov523-coder" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> GitHub
+          </a>
+          <a class="chip-link" href="https://t.me/omadbek_xosh1mov" target="_blank" rel="noopener noreferrer">
+            <svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg> Telegram
+          </a>
+        </div>
+      </article>
+
+      <article class="bento__cell glass reveal">
+        <p class="bento__label">Front end</p>
+        <p class="bento__big">Pixel-perfect interfaces that stay fast at 60&nbsp;fps.</p>
+        <ul class="tick-list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> React · Next.js · TypeScript</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Design systems &amp; component APIs</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> WebGL / Canvas micro-interactions</li>
+        </ul>
+      </article>
+
+      <article class="bento__cell glass reveal">
+        <p class="bento__label">Back end</p>
+        <p class="bento__big">APIs with sane contracts and boring, reliable infrastructure.</p>
+        <ul class="tick-list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Node.js · Express · FastAPI</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> JWT auth, RBAC, rate limiting</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> PostgreSQL schema design</li>
+        </ul>
+      </article>
+
+      <article class="bento__cell bento__cell--code glass reveal">
+        <p class="bento__label">Currently into</p>
+        <pre class="code-block"><code><span class="c-key">const</span> <span class="c-var">stack</span> = {
+  ui:   [<span class="c-str">'React'</span>, <span class="c-str">'Next.js'</span>, <span class="c-str">'Tailwind'</span>],
+  api:  [<span class="c-str">'Node.js'</span>, <span class="c-str">'FastAPI'</span>, <span class="c-str">'GraphQL'</span>],
+  data: [<span class="c-str">'PostgreSQL'</span>, <span class="c-str">'Redis'</span>, <span class="c-str">'Prisma'</span>],
+  ops:  [<span class="c-str">'Docker'</span>, <span class="c-str">'GitHub Actions'</span>, <span class="c-str">'Nginx'</span>]
+};</code></pre>
+      </article>
+
+      <article class="bento__cell bento__cell--quote glass reveal">
+        <svg class="icon icon--xl" aria-hidden="true"><use href="#i-spark"/></svg>
+        <blockquote>
+          <p>“Ship it, then make it fast. Nobody has ever praised a product that
+             didn't exist yet.”</p>
+          <footer>— my own rule, tattooed on the wall</footer>
+        </blockquote>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     3 · SKILLS
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="skills" aria-labelledby="skillsTitle">
+  <div class="container">
+    <header class="sec-head sec-head--center">
+      <p class="sec-head__index reveal"><span>02</span> Toolkit</p>
+      <h2 class="sec-head__title reveal" id="skillsTitle">The stack I reach for</h2>
+      <p class="sec-head__sub reveal">Boring tools that scale, plus the fun ones that make interfaces feel alive.</p>
+    </header>
+  </div>
+
+  <!-- Infinite marquees -->
+  <div class="marquees" aria-hidden="true">
+    <div class="marquee" data-marquee data-speed="38">
+      <div class="marquee__track">
+        <!-- duplicated by JS for a seamless loop -->
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-react"/></svg> React</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-next"/></svg> Next.js</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-ts"/></svg> TypeScript</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-node"/></svg> Node.js</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-python"/></svg> Python</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-postgres"/></svg> PostgreSQL</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-docker"/></svg> Docker</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-git"/></svg> Git</span>
+      </div>
+    </div>
+    <div class="marquee marquee--reverse" data-marquee data-speed="44">
+      <div class="marquee__track">
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-tailwind"/></svg> Tailwind</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-graphql"/></svg> GraphQL</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-redis"/></svg> Redis</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-prisma"/></svg> Prisma</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-figma"/></svg> Figma</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-mongo"/></svg> MongoDB</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-linux"/></svg> Linux</span>
+        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-ts"/></svg> Zod</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="rings">
+      <div class="ring glass reveal" data-ring>
+        <svg class="ring__svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring__track" cx="60" cy="60" r="52"/>
+          <circle class="ring__bar"  cx="60" cy="60" r="52" data-value="92"/>
+        </svg>
+        <span class="ring__pct"><span class="ring__num">0</span>%</span>
+        <span class="ring__label">Frontend</span>
+      </div>
+      <div class="ring glass reveal" data-ring>
+        <svg class="ring__svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring__track" cx="60" cy="60" r="52"/>
+          <circle class="ring__bar"  cx="60" cy="60" r="52" data-value="85"/>
+        </svg>
+        <span class="ring__pct"><span class="ring__num">0</span>%</span>
+        <span class="ring__label">Backend</span>
+      </div>
+      <div class="ring glass reveal" data-ring>
+        <svg class="ring__svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring__track" cx="60" cy="60" r="52"/>
+          <circle class="ring__bar"  cx="60" cy="60" r="52" data-value="78"/>
+        </svg>
+        <span class="ring__pct"><span class="ring__num">0</span>%</span>
+        <span class="ring__label">Databases</span>
+      </div>
+      <div class="ring glass reveal" data-ring>
+        <svg class="ring__svg" viewBox="0 0 120 120" aria-hidden="true">
+          <circle class="ring__track" cx="60" cy="60" r="52"/>
+          <circle class="ring__bar"  cx="60" cy="60" r="52" data-value="88"/>
+        </svg>
+        <span class="ring__pct"><span class="ring__num">0</span>%</span>
+        <span class="ring__label">DevOps</span>
+      </div>
+    </div>
+
+    <div class="pillars">
+      <article class="pillar glass reveal">
+        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-layers"/></svg>
+        <h3>Frontend</h3>
+        <p>React and Next.js interfaces built around a real design system, with motion that
+           reinforces state instead of decorating it.</p>
+        <div class="tag-row">
+          <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span>
+          <span class="tag">Tailwind</span><span class="tag">Framer Motion</span><span class="tag">Redux</span>
+        </div>
+      </article>
+      <article class="pillar glass reveal">
+        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-server"/></svg>
+        <h3>Backend</h3>
+        <p>REST and GraphQL services with validation, authentication, rate limits and
+           migrations that can be rolled back.</p>
+        <div class="tag-row">
+          <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">FastAPI</span>
+          <span class="tag">GraphQL</span><span class="tag">JWT</span><span class="tag">Celery</span>
+        </div>
+      </article>
+      <article class="pillar glass reveal">
+        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-docker"/></svg>
+        <h3>DevOps &amp; Tools</h3>
+        <p>Reproducible environments and one-command deploys, so shipping on a Friday is
+           a decision, not an accident.</p>
+        <div class="tag-row">
+          <span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span>
+          <span class="tag">Git</span><span class="tag">GitHub Actions</span><span class="tag">Nginx</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     4 · PROJECTS
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="projects" aria-labelledby="projectsTitle">
+  <div class="container">
+    <header class="sec-head">
+      <p class="sec-head__index reveal"><span>03</span> Selected work</p>
+      <h2 class="sec-head__title reveal" id="projectsTitle">
+        Things I&#39;ve <em>shipped</em>,<br>not just screenshotted.
+      </h2>
+      <p class="sec-head__sub reveal">
+        Hover a card for the case study. Every project below is a real, running application —
+        API, database and deployment included.
+      </p>
+    </header>
+
+    <ul class="work-grid">
+      <!-- 1 · BACKEND SHOWCASE -->
+      <li class="work glass reveal" data-tilt data-project="nexus">
+        <div class="work__media">
+          <img src="assets/projects/01-nexus-commerce.svg" width="1200" height="750" loading="lazy" decoding="async"
+               alt="Nexus Commerce admin dashboard showing sales charts and order tables">
+          <span class="work__badge">Full-stack</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">Nexus Commerce</h3>
+          <p class="work__desc">
+            Multi-vendor storefront on Next.js with a Node.js ordering service, role-based
+            staff accounts and a normalised PostgreSQL schema for inventory, orders and payouts.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Next.js</span><span class="tag">Node.js</span>
+            <span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+          </div>
+          <div class="work__links">
+            <a class="btn btn--xs btn--ghost" href="[LIVE_DEMO_URL]" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> Live demo
+            </a>
+            <a class="btn btn--xs btn--ghost" href="[GITHUB_REPO_URL]" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> Code
+            </a>
+            <button class="btn btn--xs btn--link" type="button" data-open-project="nexus">
+              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- 2 · BACKEND SHOWCASE -->
+      <li class="work glass reveal" data-tilt data-project="taskflow">
+        <div class="work__media">
+          <img src="assets/projects/02-taskflow-api.svg" width="1200" height="750" loading="lazy" decoding="async"
+               alt="TaskFlow API editor window with a JSON response and Docker container status">
+          <span class="work__badge">Backend</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">TaskFlow API</h3>
+          <p class="work__desc">
+            Production REST service: JWT auth with refresh rotation, schema-validated input,
+            cursor pagination, Redis-backed rate limiting and a Docker Compose stack that boots
+            in under ten seconds.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Node.js</span><span class="tag">Express</span>
+            <span class="tag">Redis</span><span class="tag">Zod</span><span class="tag">Docker</span>
+          </div>
+          <div class="work__links">
+            <a class="btn btn--xs btn--ghost" href="[API_DOCS_URL]" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> API docs
+            </a>
+            <a class="btn btn--xs btn--ghost" href="[GITHUB_REPO_URL]" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> Code
+            </a>
+            <button class="btn btn--xs btn--link" type="button" data-open-project="taskflow">
+              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- 3 -->
+      <li class="work glass reveal" data-tilt data-project="analytics">
+        <div class="work__media">
+          <img src="assets/projects/03-analytics-studio.svg" width="1200" height="750" loading="lazy" decoding="async"
+               alt="Analytics Studio dashboard with conversion donut chart and funnel bars">
+          <span class="work__badge">Frontend</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">Analytics Studio</h3>
+          <p class="work__desc">
+            Real-time reporting UI over a Postgres read replica. Virtualised tables stay smooth
+            at 100k rows, and every chart degrades to an accessible table for screen readers.
+          </p>
+          <div class="tag-row">
+            <span class="tag">React</span><span class="tag">TypeScript</span>
+            <span class="tag">D3</span><span class="tag">TanStack Query</span>
+          </div>
+          <div class="work__links">
+            <a class="btn btn--xs btn--ghost" href="[LIVE_DEMO_URL]" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> Live demo
+            </a>
+            <button class="btn btn--xs btn--link" type="button" data-open-project="analytics">
+              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- 4 -->
+      <li class="work glass reveal" data-tilt data-project="uzmarket">
+        <div class="work__media">
+          <img src="assets/projects/04-uzmarket-bot.svg" width="1200" height="750" loading="lazy" decoding="async"
+               alt="UzMarket Telegram bot conversation with product cards and payment methods">
+          <span class="work__badge">Automation</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">UzMarket Bot</h3>
+          <p class="work__desc">
+            Telegram sales funnel with a session-aware dialogue state machine, Click and Payme
+            payment handoff, and a Postgres-backed order pipeline that syncs stock in real time.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Node.js</span><span class="tag">Telegram Bot API</span>
+            <span class="tag">PostgreSQL</span><span class="tag">Redis</span>
+          </div>
+          <div class="work__links">
+            <a class="btn btn--xs btn--ghost" href="[LIVE_DEMO_URL]" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> Live demo
+            </a>
+            <button class="btn btn--xs btn--link" type="button" data-open-project="uzmarket">
+              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- 5 -->
+      <li class="work glass reveal" data-tilt data-project="nova">
+        <div class="work__media">
+          <img src="assets/projects/05-novastudio-cms.svg" width="1200" height="750" loading="lazy" decoding="async"
+               alt="Nova Studio CMS content grid with publish status chips">
+          <span class="work__badge">CMS</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">Nova Studio CMS</h3>
+          <p class="work__desc">
+            Headless publishing platform with draft/review workflow, incremental static
+            regeneration and image handling on a CDN edge — 98 Lighthouse on the public site.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Next.js</span><span class="tag">Prisma</span>
+            <span class="tag">PostgreSQL</span><span class="tag">Cloudflare</span>
+          </div>
+          <div class="work__links">
+            <a class="btn btn--xs btn--ghost" href="[LIVE_DEMO_URL]" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> Live demo
+            </a>
+            <button class="btn btn--xs btn--link" type="button" data-open-project="nova">
+              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </button>
+          </div>
+        </div>
+      </li>
+
+      <!-- 6 -->
+      <li class="work glass reveal" data-tilt data-project="clinic">
+        <div class="work__media">
+          <img src="assets/projects/06-clinicflow.svg" width="1200" height="750" loading="lazy" decoding="async"
+               alt="ClinicFlow mobile booking screens with doctor list and available time slots">
+          <span class="work__badge">Mobile</span>
+        </div>
+        <div class="work__body">
+          <h3 class="work__title">ClinicFlow</h3>
+          <p class="work__desc">
+            Appointment booking service with atomic slot locking to prevent double bookings,
+            SMS and Telegram reminders, and a FastAPI backend containerised for CI/CD.
+          </p>
+          <div class="tag-row">
+            <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span><span class="tag">Redis</span>
+          </div>
+          <div class="work__links">
+            <a class="btn btn--xs btn--ghost" href="[LIVE_DEMO_URL]" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> Live demo
+            </a>
+            <button class="btn btn--xs btn--link" type="button" data-open-project="clinic">
+              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     5 · EXPERIENCE / TIMELINE
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="experience" aria-labelledby="expTitle">
+  <div class="container">
+    <header class="sec-head">
+      <p class="sec-head__index reveal"><span>04</span> Journey</p>
+      <h2 class="sec-head__title reveal" id="expTitle">Where the work took me</h2>
+      <p class="sec-head__sub reveal">A short history of shipping things and learning what breaks.</p>
+    </header>
+
+    <ol class="timeline" data-timeline>
+      <li class="tl__item reveal">
+        <span class="tl__dot" aria-hidden="true"></span>
+        <div class="tl__card glass">
+          <p class="tl__meta">2024 — Present · Tashkent</p>
+          <h3 class="tl__title">Full-Stack Web Developer</h3>
+          <p class="tl__text">
+            Building and maintaining web applications end-to-end for clients across Central Asia.
+            Owning everything from the React front end to the Docker deployment, including database
+            design, API contracts and CI/CD pipelines.
+          </p>
+          <div class="tag-row">
+            <span class="tag">React</span><span class="tag">Node.js</span>
+            <span class="tag">PostgreSQL</span><span class="tag">Docker</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="tl__item reveal">
+        <span class="tl__dot" aria-hidden="true"></span>
+        <div class="tl__card glass">
+          <p class="tl__meta">2023 — 2024</p>
+          <h3 class="tl__title">Backend Developer</h3>
+          <p class="tl__text">
+            Designed REST APIs and authentication flows, moved a legacy codebase from MySQL to
+            PostgreSQL with zero downtime, and cut p95 response times by roughly 60% through
+            indexing and query work.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Express</span><span class="tag">FastAPI</span>
+            <span class="tag">JWT</span><span class="tag">Redis</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="tl__item reveal">
+        <span class="tl__dot" aria-hidden="true"></span>
+        <div class="tl__card glass">
+          <p class="tl__meta">2022 — 2023</p>
+          <h3 class="tl__title">Frontend Developer</h3>
+          <p class="tl__text">
+            Shipped marketing sites and dashboards, turned a pile of inconsistent mockups into a
+            component library, and learned the hard way that accessibility is cheaper to build in
+            than to retrofit.
+          </p>
+          <div class="tag-row">
+            <span class="tag">JavaScript</span><span class="tag">React</span>
+            <span class="tag">Sass</span><span class="tag">Figma</span>
+          </div>
+        </div>
+      </li>
+
+      <li class="tl__item reveal">
+        <span class="tl__dot" aria-hidden="true"></span>
+        <div class="tl__card glass">
+          <p class="tl__meta">2021 — 2022</p>
+          <h3 class="tl__title">Freelance Web Coder</h3>
+          <p class="tl__text">
+            Took on first paid client work: landing pages, small business sites and a few
+            Telegram bots. Learned scoping, quoting and how to say no to a project that is a
+            bad idea.
+          </p>
+          <div class="tag-row">
+            <span class="tag">HTML</span><span class="tag">CSS</span>
+            <span class="tag">JavaScript</span><span class="tag">WordPress</span>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     6 · SERVICES
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="services" aria-labelledby="svcTitle">
+  <div class="container">
+    <header class="sec-head sec-head--center">
+      <p class="sec-head__index reveal"><span>05</span> Services</p>
+      <h2 class="sec-head__title reveal" id="svcTitle">What I can build for you</h2>
+      <p class="sec-head__sub reveal">Four things I do properly, rather than twenty things I do badly.</p>
+    </header>
+
+    <ul class="svc-grid">
+      <li class="svc glass reveal" data-tilt>
+        <span class="svc__num">01</span>
+        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-layers"/></svg>
+        <h3>Web Applications</h3>
+        <p>Full product builds — dashboards, portals, marketplaces — with authentication,
+           roles, payments and admin tooling. Designed as one coherent system rather than
+           a collection of pages.</p>
+        <ul class="tick-list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> React · Next.js front end</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Node.js or Python API</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> PostgreSQL schema &amp; migrations</li>
+        </ul>
+      </li>
+
+      <li class="svc glass reveal" data-tilt>
+        <span class="svc__num">02</span>
+        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-server"/></svg>
+        <h3>APIs &amp; Backends</h3>
+        <p>REST or GraphQL services with validation, versioning, rate limiting and generated
+           documentation — plus the auth layer that keeps the boring stuff out of your hands.</p>
+        <ul class="tick-list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> JWT / OAuth / sessions</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Swagger &amp; OpenAPI</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Caching &amp; background jobs</li>
+        </ul>
+      </li>
+
+      <li class="svc glass reveal" data-tilt>
+        <span class="svc__num">03</span>
+        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-bot"/></svg>
+        <h3>Telegram Bots</h3>
+        <p>Sales funnels, onboarding flows, reminders and internal tools. Dialogue state that
+           survives a restart, and payments wired through Click or Payme.</p>
+        <ul class="tick-list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Inline keyboards &amp; flows</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Payment integration</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Admin panel + analytics</li>
+        </ul>
+      </li>
+
+      <li class="svc glass reveal" data-tilt>
+        <span class="svc__num">04</span>
+        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-rocket"/></svg>
+        <h3>Landing Pages</h3>
+        <p>Fast, focused, conversion-oriented pages. Built to load in under a second, look
+           sharp on every screen, and be editable without a developer in the loop.</p>
+        <ul class="tick-list">
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Sub-second load target</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> SEO &amp; structured data</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Analytics wired in</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     7 · TESTIMONIALS
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section class="section" id="testimonials" aria-labelledby="tmTitle">
+  <div class="container">
+    <header class="sec-head sec-head--center">
+      <p class="sec-head__index reveal"><span>06</span> Kind words</p>
+      <h2 class="sec-head__title reveal" id="tmTitle">What clients say</h2>
+    </header>
+
+    <div class="quotes" id="quotes" data-autoplay="4200">
+      <div class="quotes__viewport">
+        <ul class="quotes__track">
+          <li class="quote glass" data-quote>
+            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-spark"/></svg>
+            <blockquote>
+              <p>Omadbek rebuilt our order system over a weekend and then explained every
+                 decision afterwards, in plain language. Our support tickets dropped by half.</p>
+            </blockquote>
+            <footer class="quote__by">
+              <span class="quote__avatar" aria-hidden="true">SN</span>
+              <span><strong>[CLIENT_NAME]</strong><small>[CLIENT_ROLE · COMPANY]</small></span>
+            </footer>
+          </li>
+          <li class="quote glass" data-quote>
+            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-spark"/></svg>
+            <blockquote>
+              <p>The API documentation alone saved us a week. Clean code, real tests, and
+                 a Docker Compose file that actually works on a clean machine.</p>
+            </blockquote>
+            <footer class="quote__by">
+              <span class="quote__avatar" aria-hidden="true">DK</span>
+              <span><strong>[CLIENT_NAME]</strong><small>[CLIENT_ROLE · COMPANY]</small></span>
+            </footer>
+          </li>
+          <li class="quote glass" data-quote>
+            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-spark"/></svg>
+            <blockquote>
+              <p>We asked for a landing page and got something that felt like a product.
+                 He pushed back on two of our ideas — correctly — and it made the result better.</p>
+            </blockquote>
+            <footer class="quote__by">
+              <span class="quote__avatar" aria-hidden="true">AO</span>
+              <span><strong>[CLIENT_NAME]</strong><small>[CLIENT_ROLE · COMPANY]</small></span>
+            </footer>
+          </li>
+          <li class="quote glass" data-quote>
+            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-spark"/></svg>
+            <blockquote>
+              <p>Our Telegram bot went from idea to live in nine days. It has processed
+                 thousands of orders without a single double booking.</p>
+            </blockquote>
+            <footer class="quote__by">
+              <span class="quote__avatar" aria-hidden="true">JR</span>
+              <span><strong>[CLIENT_NAME]</strong><small>[CLIENT_ROLE · COMPANY]</small></span>
+            </footer>
+          </li>
+        </ul>
+      </div>
+
+      <div class="quotes__controls">
+        <button class="icon-btn" type="button" id="quotePrev" aria-label="Previous testimonial">
+          <svg class="icon" aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg>
+        </button>
+        <div class="quotes__dots" id="quoteDots" role="tablist" aria-label="Choose testimonial"></div>
+        <button class="icon-btn" type="button" id="quoteNext" aria-label="Next testimonial">
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     8 · CONTACT
+     ══════════════════════════════════════════════════════════════════════════ -->
+<section class="section section--contact" id="contact" aria-labelledby="contactTitle">
+  <div class="container">
+    <div class="contact">
+      <div class="contact__copy">
+        <p class="sec-head__index reveal"><span>07</span> Contact</p>
+        <h2 class="sec-head__title reveal" id="contactTitle">
+          Let&#39;s build<br><em>something amazing</em>
+        </h2>
+        <p class="contact__lead reveal">
+          Got a project, a role, or a codebase that needs rescuing? Tell me about it —
+          I reply to every serious message within a day.
+        </p>
+
+        <ul class="contact__links reveal">
+          <li>
+            <a class="contact__link" href="mailto:omadbekxoshimov792@gmail.com">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+              <span><small>Email</small>omadbekxoshimov792@gmail.com</span>
+              <svg class="icon contact__go" aria-hidden="true"><use href="#i-arrow-out"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="contact__link" href="https://t.me/omadbek_xosh1mov" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg>
+              <span><small>Telegram</small>@omadbek_xosh1mov</span>
+              <svg class="icon contact__go" aria-hidden="true"><use href="#i-arrow-out"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="contact__link" href="https://github.com/omadbekxoshimov523-coder" target="_blank" rel="noopener noreferrer">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+              <span><small>GitHub</small>omadbekxoshimov523-coder</span>
+              <svg class="icon contact__go" aria-hidden="true"><use href="#i-arrow-out"/></svg>
+            </a>
+          </li>
+          <li>
+            <span class="contact__link contact__link--static">
+              <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
+              <span><small>Based in</small>Tashkent, Uzbekistan · UTC+5</span>
+            </span>
+          </li>
+        </ul>
+
+        <div class="contact__social reveal">
+          <a class="social" href="https://github.com/omadbekxoshimov523-coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
+          </a>
+          <a class="social" href="https://t.me/omadbek_xosh1mov" target="_blank" rel="noopener noreferrer" aria-label="Telegram profile">
+            <svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg>
+          </a>
+          <a class="social" href="https://www.linkedin.com/in/[YOUR_LINKEDIN]" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+            <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
+          </a>
+          <a class="social" href="https://www.instagram.com/[YOUR_INSTAGRAM]" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+            <svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg>
+          </a>
+          <a class="social" href="mailto:omadbekxoshimov792@gmail.com" aria-label="Send an email">
+            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Formspree works on static hosts — swap the ID for your own. -->
+      <form class="form glass reveal" id="contactForm"
+            action="https://formspree.io/f/[YOUR_FORMSPREE_ID]" method="POST" novalidate>
+        <h3 class="form__title">Send a message</h3>
+
+        <div class="field">
+          <label for="name">Your name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required placeholder="Jane Doe">
+          <p class="field__error" data-error-for="name" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required placeholder="jane@company.com">
+          <p class="field__error" data-error-for="email" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="subject">Project type</label>
+          <select id="subject" name="subject">
+            <option value="Web application">Web application</option>
+            <option value="API / backend">API / backend</option>
+            <option value="Telegram bot">Telegram bot</option>
+            <option value="Landing page">Landing page</option>
+            <option value="Something else">Something else</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Tell me what you're building…"></textarea>
+          <p class="field__error" data-error-for="message" aria-live="polite"></p>
+        </div>
+
+        <!-- Honeypot: bots fill it, humans never see it -->
+        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <input type="hidden" name="_subject" value="New portfolio enquiry">
+        <!-- ↑ Replace the email address below with your own for Formspree notifications -->
+        <input type="hidden" name="_next" value="https://omadbekxoshimov.github.io/?sent=1">
+
+        <button class="btn btn--primary btn--block" type="submit" id="submitBtn" data-magnetic>
+          <span class="btn__label">Send message</span>
+          <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+        </button>
+
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+        <p class="form__note">
+          Or email me directly at
+          <a href="mailto:omadbekxoshimov792@gmail.com">omadbekxoshimov792@gmail.com</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer__marquee" aria-hidden="true">
+    <div class="marquee" data-marquee data-speed="60">
+      <div class="marquee__track">
+        <span class="footer__word">Let&#39;s build something amazing</span>
+        <span class="footer__word">Let&#39;s build something amazing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer__inner">
+    <p class="footer__cta" aria-hidden="true">
+      Let&#39;s build<br><em>something amazing</em>
+    </p>
+
+    <div class="footer__bar">
+      <p>© <span id="year">2026</span> Xoshimov Omadbek. Built from scratch in Tashkent.</p>
+      <nav class="footer__nav" aria-label="Footer">
+        <a href="#about">About</a>
+        <a href="#projects">Work</a>
+        <a href="https://github.com/omadbekxoshimov523-coder" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://t.me/omadbek_xosh1mov" target="_blank" rel="noopener noreferrer">Telegram</a>
+      </nav>
+      <a class="to-top" href="#hero" data-magnetic aria-label="Back to top">
+        <svg class="icon" aria-hidden="true" style="transform:rotate(-90deg)"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     PROJECT MODAL (native <dialog> = free focus trap + Esc handling)
+     ══════════════════════════════════════════════════════════════════════════ -->
+<dialog class="modal" id="projectModal" aria-labelledby="modalTitle">
+  <div class="modal__panel">
+    <button class="icon-btn modal__close" type="button" id="modalClose" aria-label="Close case study" autofocus>
+      <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
+    </button>
+
+    <div class="modal__scroll">
+      <div class="modal__media">
+        <img id="modalImg" src="assets/projects/01-nexus-commerce.svg" width="1200" height="750"
+             alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="modal__body">
+        <p class="modal__eyebrow" id="modalEyebrow">Case study</p>
+        <h2 class="modal__title" id="modalTitle">Project</h2>
+        <p class="modal__meta" id="modalMeta"></p>
+        <p class="modal__text" id="modalText"></p>
+
+        <h3 class="modal__sub">What I did</h3>
+        <ul class="tick-list" id="modalList"></ul>
+
+        <h3 class="modal__sub">Stack</h3>
+        <div class="tag-row" id="modalTags"></div>
+
+        <div class="modal__links" id="modalLinks"></div>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- ══════════════════════════════════════════════════════════════════════════
+     SCRIPTS
+     ══════════════════════════════════════════════════════════════════════════ -->
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script defer src="js/main.js"></script>
+
+</body>
+</html>

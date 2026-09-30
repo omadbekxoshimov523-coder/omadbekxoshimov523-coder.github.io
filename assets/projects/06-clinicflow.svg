@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 750" width="1200" height="750" role="img" aria-label="ClinicFlow — mobile booking app with doctor profile and time slots">
+  <title>ClinicFlow — mobile appointment booking</title>
+  <defs>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#4ADE80"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.015"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.62" cy="0.06" r="1">
+      <stop offset="0" stop-color="#22D3EE" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="750" fill="#07070b"/>
+  <rect width="1200" height="750" fill="url(#glow)"/>
+
+  <rect x="40" y="40" width="1120" height="670" rx="22" fill="#0C0C15" stroke="#ffffff" stroke-opacity="0.10"/>
+  <path d="M40 62a22 22 0 0 1 22-22h1076a22 22 0 0 1 22 22v24H40z" fill="#ffffff" opacity="0.035"/>
+  <circle cx="72" cy="63" r="6" fill="#FF5F57"/><circle cx="94" cy="63" r="6" fill="#FEBC2E"/><circle cx="116" cy="63" r="6" fill="#28C840"/>
+  <rect x="150" y="57" width="170" height="12" rx="6" fill="#ffffff" opacity="0.13"/>
+
+  <!-- marketing copy on the left -->
+  <rect x="96" y="176" width="270" height="18" rx="9" fill="#ffffff" opacity="0.34"/>
+  <rect x="96" y="212" width="230" height="12" rx="6" fill="#ffffff" opacity="0.15"/>
+  <rect x="96" y="240" width="256" height="12" rx="6" fill="#ffffff" opacity="0.15"/>
+  <rect x="96" y="292" width="196" height="52" rx="26" fill="url(#accent)"/>
+  <text x="194" y="324" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="600" fill="#04231F">Book a visit</text>
+  <g font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94A3B8">
+    <rect x="96" y="386" width="230" height="1" fill="#ffffff" opacity="0.08"/>
+    <text x="96" y="424">FastAPI · PostgreSQL · Redis</text>
+    <text x="96" y="456">JWT auth · slot locking · reminders</text>
+    <text x="96" y="488">Deployed with Docker Compose</text>
+    <rect x="96" y="512" width="230" height="1" fill="#ffffff" opacity="0.08"/>
+  </g>
+  <g>
+    <circle cx="110" cy="558" r="5" fill="url(#accent)"/><text x="126" y="563" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#64748B">No double booking</text>
+    <circle cx="110" cy="594" r="5" fill="url(#accent)"/><text x="126" y="599" font-family="Inter, system-ui, sans-serif" font-size="14" fill="#64748B">SMS + Telegram reminders</text>
+  </g>
+
+  <!-- phone 1: doctor list -->
+  <g>
+    <rect x="440" y="106" width="288" height="596" rx="34" fill="#0C0C15" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="456" y="122" width="256" height="564" rx="26" fill="url(#glass)"/>
+    <rect x="540" y="130" width="88" height="8" rx="4" fill="#ffffff" opacity="0.16"/>
+    <rect x="478" y="158" width="130" height="15" rx="7.5" fill="#ffffff" opacity="0.36"/>
+    <rect x="478" y="188" width="86" height="9" rx="4.5" fill="#ffffff" opacity="0.15"/>
+
+    <rect x="472" y="216" width="224" height="96" rx="16" fill="url(#accent)" opacity="0.18"/>
+    <circle cx="516" cy="264" r="24" fill="url(#accent)"/>
+    <rect x="552" y="240" width="110" height="10" rx="5" fill="#ffffff" opacity="0.40"/>
+    <rect x="552" y="262" width="80" height="8" rx="4" fill="#ffffff" opacity="0.18"/>
+    <rect x="552" y="282" width="96" height="16" rx="8" fill="url(#accent)"/>
+
+    <rect x="472" y="326" width="224" height="96" rx="16" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.08"/>
+    <circle cx="516" cy="374" r="24" fill="url(#accent)" opacity="0.6"/>
+    <rect x="552" y="350" width="96" height="10" rx="5" fill="#ffffff" opacity="0.32"/>
+    <rect x="552" y="372" width="70" height="8" rx="4" fill="#ffffff" opacity="0.16"/>
+    <rect x="552" y="392" width="104" height="16" rx="8" fill="url(#accent)" opacity="0.55"/>
+
+    <rect x="472" y="436" width="224" height="96" rx="16" fill="url(#glass)" stroke="#ffffff" stroke-opacity="0.08"/>
+    <circle cx="516" cy="484" r="24" fill="url(#accent)" opacity="0.38"/>
+    <rect x="552" y="460" width="120" height="10" rx="5" fill="#ffffff" opacity="0.32"/>
+    <rect x="552" y="482" width="80" height="8" rx="4" fill="#ffffff" opacity="0.16"/>
+    <rect x="552" y="502" width="88" height="16" rx="8" fill="url(#accent)" opacity="0.35"/>
+
+    <rect x="472" y="600" width="224" height="60" rx="18" fill="#ffffff" opacity="0.04"/>
+  </g>
+
+  <!-- phone 2: time slots -->
+  <g>
+    <rect x="760" y="106" width="288" height="596" rx="34" fill="#0C0C15" stroke="#ffffff" stroke-opacity="0.14"/>
+    <rect x="776" y="122" width="256" height="564" rx="26" fill="url(#glass)"/>
+    <rect x="860" y="130" width="88" height="8" rx="4" fill="#ffffff" opacity="0.16"/>
+    <circle cx="806" cy="180" r="16" fill="url(#accent)" opacity="0.8"/>
+    <path d="M800 180h12" stroke="#04231F" stroke-width="2.5" stroke-linecap="round"/>
+    <rect x="832" y="168" width="120" height="13" rx="6.5" fill="#ffffff" opacity="0.34"/>
+    <rect x="832" y="190" width="86" height="9" rx="4.5" fill="#ffffff" opacity="0.15"/>
+
+    <g>
+      <rect x="792" y="228" width="72" height="42" rx="12" fill="url(#accent)"/>
+      <text x="828" y="254" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#04231F">09:00</text>
+      <rect x="876" y="228" width="72" height="42" rx="12" fill="#ffffff" opacity="0.07"/>
+      <text x="912" y="254" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94A3B8">09:30</text>
+      <rect x="792" y="282" width="72" height="42" rx="12" fill="#ffffff" opacity="0.07"/>
+      <text x="828" y="308" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94A3B8">10:00</text>
+      <rect x="876" y="282" width="72" height="42" rx="12" fill="#ffffff" opacity="0.05"/>
+      <text x="912" y="308" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#475569">10:30</text>
+      <rect x="792" y="336" width="72" height="42" rx="12" fill="#ffffff" opacity="0.07"/>
+      <text x="828" y="362" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94A3B8">11:00</text>
+      <rect x="876" y="336" width="72" height="42" rx="12" fill="url(#accent)" opacity="0.85"/>
+      <text x="912" y="362" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" font-weight="600" fill="#04231F">11:30</text>
+      <rect x="792" y="390" width="72" height="42" rx="12" fill="#ffffff" opacity="0.07"/>
+      <text x="828" y="416" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94A3B8">12:00</text>
+      <rect x="876" y="390" width="72" height="42" rx="12" fill="#ffffff" opacity="0.07"/>
+      <text x="912" y="416" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="15" fill="#94A3B8">12:30</text>
+    </g>
+
+    <rect x="792" y="462" width="216" height="1" fill="#ffffff" opacity="0.08"/>
+    <rect x="792" y="486" width="120" height="10" rx="5" fill="#ffffff" opacity="0.24"/>
+    <rect x="792" y="510" width="180" height="9" rx="4.5" fill="#ffffff" opacity="0.14"/>
+    <rect x="792" y="546" width="216" height="60" rx="18" fill="url(#accent)"/>
+    <text x="900" y="582" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="17" font-weight="600" fill="#04231F">Confirm booking</text>
+  </g>
+</svg>

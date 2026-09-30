@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages
+
+# Publishes the site on every push to the branch named below. GitHub Pages runs
+# the build for us, so there is nothing to compile — this only uploads the
+# static files. If you would rather use the "Deploy from a branch" setting in
+# Settings -> Pages, you can delete this file and nothing else changes.
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never run two deploys at once, and don't cancel one mid-flight: a half-sent
+# Pages publish can leave the site unavailable.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/configure-pages@v5
+
+      # Stage exactly the site root. Listing the files explicitly keeps .git/ and
+      # your notes out of the artifact — upload-pages-artifact has no exclude
+      # option, and pointing it at "." would publish the entire repository.
+      - name: Stage the static site
+        run: |
+          mkdir -p _site
+          cp -r index.html 404.html robots.txt sitemap.xml \
+                site.webmanifest .nojekyll \
+                css js assets _site/
+          ls -R _site
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - id: deployment
+        uses: actions/deploy-pages@v4
