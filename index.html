@@ -1,1166 +1,1536 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Xoshimov Omadbek — Software Engineer</title>
+<meta name="description" content="Xoshimov Omadbek — Software Engineer / Full-Stack Developer. Building the Future with Code.">
+<meta name="theme-color" content="#05070d">
+<!-- Inline SVG favicon (gold monogram) — no extra file to host -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23d9b46a'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='36' font-weight='bold' text-anchor='middle' fill='%230a0d14'%3EO%3C/text%3E%3C/svg%3E">
 
-<!-- ══════════════════════════════════════════════════════════════════════════
-     SEO
-     ══════════════════════════════════════════════════════════════════════════ -->
-<title>Xoshimov Omadbek — Full-Stack Web Developer | React · Node · Python</title>
-<meta name="description" content="Xoshimov Omadbek is a full-stack web developer from Tashkent, Uzbekistan building fast, production-ready web apps with React, Next.js, Node.js, Python, PostgreSQL and Docker.">
-<meta name="author" content="Xoshimov Omadbek">
-<meta name="keywords" content="full stack developer, react developer, next.js, node.js, python developer, postgresql, docker, web developer tashkent, uzbekistan, freelance web developer">
-<meta name="color-scheme" content="dark light">
-<!-- Single (non media-scoped) theme-color: the inline script below rewrites it
-     whenever the theme resolves, so a manual toggle also repaints the browser UI. -->
-<meta name="theme-color" content="#07070b" id="themeColor">
-<link rel="canonical" href="https://omadbekxoshimov.github.io/">
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     Open Graph / Twitter
-     ══════════════════════════════════════════════════════════════════════════ -->
+<!-- Open Graph / social preview -->
+<meta property="og:title" content="Xoshimov Omadbek — Software Engineer">
+<meta property="og:description" content="Building the Future with Code.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Xoshimov Omadbek">
-<meta property="og:title" content="Xoshimov Omadbek — Full-Stack Web Developer">
-<meta property="og:description" content="I design and build fast, production-ready web applications — from React front-ends to Node.js & Python APIs, PostgreSQL schemas and Docker deployments.">
-<meta property="og:url" content="https://omadbekxoshimov.github.io/">
-<meta property="og:image" content="https://omadbekxoshimov.github.io/assets/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Xoshimov Omadbek — Full-Stack Web Developer">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Xoshimov Omadbek — Full-Stack Web Developer">
-<meta name="twitter:description" content="React · Next.js · Node.js · Python · PostgreSQL · Docker. Based in Tashkent, Uzbekistan.">
-<meta name="twitter:image" content="https://omadbekxoshimov.github.io/assets/og-image.png">
 
-<!-- ══════════════════════════════════════════════════════════════════════════
-     Icons
-     ══════════════════════════════════════════════════════════════════════════ -->
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png">
-<!-- iOS ignores SVG for the home-screen icon, so this one must be PNG -->
-<link rel="apple-touch-icon" href="assets/icon-192.png">
-<link rel="manifest" href="site.webmanifest">
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     Fonts — Space Grotesk (display) + Inter (body), swap + preconnect
-     ══════════════════════════════════════════════════════════════════════════ -->
+<!-- Fonts: Syne for headings, Manrope for body -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
 
-<!-- The hero portrait is the LCP element — hint the browser before HTML parsing finishes. -->
-<link rel="preload" as="image" href="assets/me.png" fetchpriority="high">
+<style>
+/* ============================================================================
+   1. DESIGN TOKENS
+   One place for every colour, radius, easing and spacing used below.
+   ========================================================================= */
+:root{
+  --bg:          #05070d;   /* deep navy-black — page background        */
+  --sky:         #8fb4d9;   /* sky blue — secondary accents             */
+  --gold:        #d9b46a;   /* warm gold — primary accent (watch tone)  */
+  --cream:       #f3efe6;   /* primary text                            */
+  --muted:       #9aa4b2;   /* secondary text                          */
+  --glass:       rgba(10,14,24,.55);      /* navbar / card fill         */
+  --line:        rgba(143,180,217,.18);   /* hairline borders           */
+  --radius:      22px;
+  --radius-sm:   14px;
+  --maxw:        1180px;
+  --ease:        cubic-bezier(.22,.61,.36,1);
+  --nav-h:       74px;
+}
 
-<link rel="stylesheet" href="css/styles.css">
+/* ============================================================================
+   2. RESET & BASE
+   ========================================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html:focus-within{scroll-behavior:smooth}          /* smooth anchor scrolling   */
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--cream);
+  font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.is-locked{overflow:hidden}                   /* modal open              */
+img{max-width:100%;display:block}
+h1,h2,h3,h4{
+  font-family:"Syne",system-ui,sans-serif;
+  font-weight:800;
+  letter-spacing:-.02em;
+  line-height:1.02;
+  margin:0;
+  overflow-wrap:break-word;   /* a long word can never widen the page */
+}
+p{margin:0}
+a{color:inherit;text-decoration:none}
 
-<!-- Apply the saved/system theme before first paint so there is no flash. -->
-<script>
-  (function () {
-    // Arm the JS-only reveal states. Everything hidden by `.js .reveal` is
-    // un-hidden by this failsafe, but ONLY if main.js never showed up —
-    // main.js sets data-js-live synchronously, and stripping `js` while it is
-    // alive would skip the reveal for every section still below the fold.
-    // Timers only: never invoke this during parse, main.js is deferred.
-    var el = document.documentElement;
-    el.classList.add('js');
-    el.classList.add('preloader-lock');
+/* Visible gold focus ring everywhere (accessibility) */
+:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:3px;
+  border-radius:6px;
+}
 
-    function failsafe() {
-      el.classList.remove('preloader-lock');
-      if (el.hasAttribute('data-js-live')) return;
-      el.classList.remove('js');
-      el.classList.add('preloader-fail');
-    }
-    setTimeout(failsafe, 4000);
-    window.addEventListener('load', function () { setTimeout(failsafe, 1500); });
+/* Screen-reader-only helper */
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
+}
 
-    try {
-      var saved = localStorage.getItem('theme');
-      var theme = saved || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-      document.documentElement.setAttribute('data-theme', theme);
-      var m = document.getElementById('themeColor');
-      if (m) m.setAttribute('content', theme === 'light' ? '#f6f6fa' : '#07070b');
-    } catch (e) { /* private mode — fall through to the dark default */ }
-  })();
-</script>
+/* Custom scrollbar (WebKit) — keeps the dark theme consistent */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#05070d}
+::-webkit-scrollbar-thumb{background:#1b2433;border-radius:10px;border:2px solid #05070d}
+::-webkit-scrollbar-thumb:hover{background:var(--sky)}
+
+/* ============================================================================
+   3. LOADER — big gold percentage on a dark field
+   ========================================================================= */
+.loader{
+  position:fixed;inset:0;z-index:200;
+  display:grid;place-items:center;
+  background:var(--bg);
+  transition:opacity .8s var(--ease),visibility .8s var(--ease);
+}
+.loader.is-done{opacity:0;visibility:hidden;pointer-events:none}
+.loader__inner{width:min(420px,78vw);text-align:center}
+.loader__pct{
+  font-family:"Syne",sans-serif;font-weight:800;
+  font-size:clamp(64px,16vw,132px);
+  line-height:.9;letter-spacing:-.04em;
+  color:var(--gold);
+  font-variant-numeric:tabular-nums;
+}
+.loader__pct sup{font-size:.3em;vertical-align:super;letter-spacing:0}
+.loader__label{
+  margin-top:18px;color:var(--muted);font-size:.82rem;letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.loader__track{
+  margin-top:22px;height:2px;width:100%;
+  background:rgba(143,180,217,.16);border-radius:2px;overflow:hidden;
+}
+.loader__track span{
+  display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--sky),var(--gold));
+  transition:width .25s linear;
+}
+.loader__note{
+  margin-top:16px;color:#5d6775;font-size:.8rem;min-height:1.2em;
+}
+
+/* ============================================================================
+   4. SCROLL PROGRESS BAR — thin gold line pinned to the very top
+   ========================================================================= */
+.progress{
+  position:fixed;top:0;left:0;right:0;height:2px;z-index:120;
+  background:rgba(143,180,217,.10);
+}
+.progress span{
+  display:block;height:100%;width:0%;
+  background:linear-gradient(90deg,var(--sky),var(--gold));
+  transform-origin:left center;
+}
+
+/* ============================================================================
+   5. NAVBAR — blurred glass, transparent gradient
+   ========================================================================= */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:110;
+  height:var(--nav-h);
+  display:flex;align-items:center;
+  background:linear-gradient(180deg,rgba(5,7,13,.78),rgba(10,14,24,.32) 70%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(143,180,217,.10);
+}
+.nav__inner{
+  width:min(var(--maxw),calc(100% - 40px));margin-inline:auto;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.nav__brand{
+  font-family:"Syne",sans-serif;font-weight:800;font-size:1.02rem;
+  letter-spacing:-.01em;white-space:nowrap;flex:none;
+}
+.nav__brand i{color:var(--gold);font-style:normal}
+/* nav must be allowed to shrink below its content width, otherwise the link list
+   pushes the page wider than the viewport on narrow phones */
+.nav__inner > nav{min-width:0;flex:1 1 auto;overflow:hidden}
+.nav__links{
+  display:flex;align-items:center;gap:4px;
+  list-style:none;margin:0;padding:0;min-width:0;
+  overflow-x:auto;scrollbar-width:none;
+}
+.nav__links::-webkit-scrollbar{display:none}
+.nav__links a{
+  display:block;padding:9px 13px;border-radius:999px;
+  font-size:.88rem;color:var(--muted);white-space:nowrap;
+  transition:color .25s var(--ease),background .25s var(--ease);
+}
+.nav__links a:hover{color:var(--cream);background:rgba(143,180,217,.10)}
+.nav__links a.is-current{color:var(--gold)}
+
+/* ============================================================================
+   6. CANVAS STAGE — fixed portrait + readability shade
+   ========================================================================= */
+.stage{position:fixed;inset:0;z-index:0;background:var(--bg)}
+.stage canvas{width:100%;height:100%;display:block}
+/* left-dark → transparent, keeps the left-hand story copy readable */
+.stage__shade{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(100deg,
+    rgba(5,7,13,.88) 0%,
+    rgba(5,7,13,.78) 26%,
+    rgba(5,7,13,.42) 52%,
+    rgba(5,7,13,.10) 74%,
+    rgba(5,7,13,.34) 100%);
+}
+
+/* ============================================================================
+   7. LAYOUT HELPERS
+   ========================================================================= */
+.wrap{width:min(var(--maxw),calc(100% - 40px));margin-inline:auto}
+.measure{max-width:56ch}                 /* ~56ch reading measure           */
+
+/* main sits above the fixed canvas in the stacking order */
+main{position:relative;z-index:1}
+
+/* Story steps — four full-screen scenes over the canvas */
+.step{
+  position:relative;                 /* anchors the scroll hint */
+  min-height:100vh;
+  display:flex;align-items:center;
+  padding:calc(var(--nav-h) + 24px) 0 80px;
+}
+.step__body{
+  width:min(640px,100%);
+  opacity:0;transform:translateY(38px);
+  transition:opacity .8s var(--ease),transform .8s var(--ease);
+}
+.step.is-active .step__body{opacity:1;transform:none}
+.step.is-active .step__body > *{animation:rise .8s var(--ease) backwards}
+.step.is-active .step__body > *:nth-child(1){animation-delay:.05s}
+.step.is-active .step__body > *:nth-child(2){animation-delay:.14s}
+.step.is-active .step__body > *:nth-child(3){animation-delay:.23s}
+.step.is-active .step__body > *:nth-child(4){animation-delay:.32s}
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+
+h1.hero__name{
+  /* min stays low enough that the longest word still fits a 360px screen */
+  font-size:clamp(2.5rem,11.5vw,7.4rem);
+  line-height:.94;letter-spacing:-.035em;
+}
+.hero__role{
+  margin-top:20px;color:var(--sky);font-weight:500;
+  font-size:clamp(.98rem,2.2vw,1.2rem);letter-spacing:.01em;
+}
+.hero__slogan{
+  margin-top:18px;color:var(--cream);
+  font-family:"Syne",sans-serif;font-weight:600;
+  font-size:clamp(1.35rem,4.2vw,2.1rem);letter-spacing:-.02em;
+}
+.hero__actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* Buttons */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:14px 26px;border-radius:999px;
+  font-weight:700;font-size:.95rem;letter-spacing:.01em;
+  border:1px solid transparent;cursor:pointer;
+  transition:transform .3s var(--ease),background .3s var(--ease),
+             color .3s var(--ease),border-color .3s var(--ease),
+             box-shadow .3s var(--ease);
+}
+.btn:hover{transform:translateY(-2px)}
+.btn--gold{background:var(--gold);color:#14100a;box-shadow:0 10px 30px -14px rgba(217,180,106,.85)}
+.btn--gold:hover{background:#e6c583;box-shadow:0 16px 38px -14px rgba(217,180,106,.95)}
+.btn--ghost{border-color:rgba(217,180,106,.55);color:var(--gold)}
+.btn--ghost:hover{background:rgba(217,180,106,.10);border-color:var(--gold)}
+
+/* Story paragraphs 2-4 */
+.story-line{
+  font-family:"Syne",sans-serif;font-weight:600;
+  font-size:clamp(1.8rem,6.4vw,3.6rem);
+  line-height:1.08;letter-spacing:-.025em;
+  max-width:20ch;
+}
+.story-line em{font-style:normal;color:var(--gold)}
+.story-sub{margin-top:20px;color:var(--muted);max-width:46ch}
+
+/* Scroll hint — dripping line, hidden after the first scroll */
+.scroll-hint{
+  position:absolute;left:50%;bottom:34px;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  color:var(--muted);font-size:.76rem;letter-spacing:.22em;
+  text-transform:uppercase;pointer-events:none;
+  transition:opacity .6s var(--ease),transform .6s var(--ease);
+}
+.scroll-hint.is-hidden{opacity:0;transform:translateX(-50%) translateY(12px)}
+.scroll-hint__drop{
+  width:1px;height:54px;overflow:hidden;position:relative;
+  background:linear-gradient(180deg,rgba(143,180,217,.05),rgba(143,180,217,.35));
+}
+.scroll-hint__drop::after{
+  content:"";position:absolute;left:0;width:1px;height:20px;
+  background:linear-gradient(180deg,transparent,var(--gold));
+  animation:drip 2.1s var(--ease) infinite;
+}
+@keyframes drip{0%{top:-22px;opacity:0}25%{opacity:1}100%{top:56px;opacity:0}}
+
+/* ============================================================================
+   8. CONTENT SECTIONS — gradient from transparent into the solid background
+   ========================================================================= */
+.content{
+  position:relative;z-index:2;
+  background:linear-gradient(180deg,
+    rgba(5,7,13,0) 0%,
+    rgba(5,7,13,.72) 90px,
+    var(--bg) 260px,
+    var(--bg) 100%);
+}
+.section{padding:clamp(76px,11vh,132px) 0;scroll-margin-top:var(--nav-h)}
+.section + .section{padding-top:clamp(48px,7vh,80px)}
+
+.section__head{max-width:62ch;margin-bottom:clamp(34px,5vh,58px)}
+.section__title{font-size:clamp(2rem,5.6vw,3.3rem)}
+.section__title .gold{color:var(--gold)}
+.section__lead{margin-top:16px;color:var(--muted)}
+
+/* ============================================================================
+   9. GLASS CARD SYSTEM + 3D TILT + GOLD SPOTLIGHT
+   ========================================================================= */
+.card{
+  position:relative;overflow:hidden;
+  padding:26px;border-radius:var(--radius);
+  background:var(--glass);
+  border:1px solid var(--line);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  transform-style:preserve-3d;
+  transition:border-color .35s var(--ease),
+             transform .35s var(--ease),
+             box-shadow .35s var(--ease);
+}
+/* cursor-following gold radial spotlight (position fed by JS as --mx/--my) */
+.card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,50%),
+             rgba(217,180,106,.16),transparent 62%);
+  opacity:0;transition:opacity .35s var(--ease);
+}
+.card:hover{border-color:var(--gold);box-shadow:0 26px 60px -34px rgba(217,180,106,.55)}
+.card:hover::before{opacity:1}
+
+/* Gradient icon tile with a dark letter */
+.tile{
+  flex:none;width:44px;height:44px;border-radius:13px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--sky),var(--gold));
+  color:#0a0d14;font-family:"Syne",sans-serif;font-weight:800;
+  font-size:.9rem;letter-spacing:.02em;
+}
+.card__row{display:flex;align-items:center;gap:14px;transform:translateZ(24px)}
+.card__title{font-size:1.16rem}
+.card__text{margin-top:12px;color:var(--muted);font-size:.97rem}
+
+/* ============================================================================
+   10. ABOUT — bento grid (1 large + 4 small)
+   ========================================================================= */
+.bento{
+  display:grid;gap:18px;
+  grid-template-columns:repeat(6,1fr);
+}
+.bento__bio{grid-column:span 6}
+.bento__cell{grid-column:span 3}
+.bento__cell--half{grid-column:span 3}
+.bento__bio .card__text{font-size:1.06rem;color:#c3ccd8;max-width:62ch}
+.tag-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.tag{
+  padding:6px 12px;border-radius:999px;font-size:.8rem;color:var(--sky);
+  border:1px solid var(--line);background:rgba(143,180,217,.07);
+}
+
+/* ============================================================================
+   11. SKILLS
+   ========================================================================= */
+.skills{
+  display:grid;gap:18px;
+  grid-template-columns:repeat(auto-fit,minmax(255px,1fr));
+}
+.skills ul{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.skills li{
+  padding:7px 13px;border-radius:999px;font-size:.86rem;
+  background:rgba(143,180,217,.09);
+  border:1px solid var(--line);
+  transition:border-color .3s var(--ease),color .3s var(--ease)
+}
+.skills li:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ============================================================================
+   12. PROJECTS
+   ========================================================================= */
+.projects{
+  display:grid;gap:20px;
+  grid-template-columns:repeat(auto-fill,minmax(310px,1fr));
+}
+.project{cursor:pointer;padding:0;display:flex;flex-direction:column}
+.project__shot{
+  position:relative;aspect-ratio:16/10;
+  background:
+    radial-gradient(120% 100% at 20% 0%,rgba(143,180,217,.20),transparent 60%),
+    linear-gradient(140deg,#0b111c,#070a11);
+  border-bottom:1px solid var(--line);
+  display:grid;place-items:center;overflow:hidden;
+}
+.project__shot .tile{width:62px;height:62px;border-radius:18px;font-size:1.15rem}
+.project__shot figcaption{
+  position:absolute;left:12px;bottom:10px;
+  font-size:.68rem;color:rgba(154,164,178,.72);
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+.project__body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1;transform:translateZ(20px)}
+.project__name{font-size:1.2rem}
+.project__desc{margin-top:10px;color:var(--muted);font-size:.94rem;flex:1}
+.project__tech{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+.project__links{
+  display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;
+  padding-top:16px;border-top:1px solid var(--line);
+}
+.pill{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:7px 13px;border-radius:999px;font-size:.8rem;
+  border:1px solid var(--line);color:var(--sky);
+  transition:border-color .3s var(--ease),color .3s var(--ease),
+             background .3s var(--ease),transform .3s var(--ease);
+}
+.pill:hover{border-color:var(--gold);color:var(--gold);background:rgba(217,180,106,.09);transform:translateY(-1px)}
+.pill--ghost{color:var(--muted)}
+.status{
+  position:absolute;top:12px;right:12px;
+  padding:5px 11px;border-radius:999px;font-size:.7rem;
+  background:rgba(5,7,13,.72);border:1px solid var(--line);
+  color:var(--gold);backdrop-filter:blur(8px);
+}
+
+/* ============================================================================
+   13. TECH STACK — infinite marquee (pauses on hover)
+   ========================================================================= */
+.marquee{
+  position:relative;overflow:hidden;
+  padding:6px 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+}
+.marquee__track{display:flex;width:max-content;animation:slide 34s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee__item{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:11px 22px;margin-right:14px;border-radius:999px;
+  border:1px solid var(--line);background:var(--glass);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  font-size:.95rem;color:var(--cream);white-space:nowrap;
+}
+.marquee__item::before{
+  content:"";width:6px;height:6px;border-radius:50%;
+  background:linear-gradient(135deg,var(--sky),var(--gold));
+}
+
+/* ============================================================================
+   14. TIMELINE — the line draws itself while scrolling
+   ========================================================================= */
+.timeline{position:relative;padding-left:38px;max-width:760px}
+.timeline::before{                       /* track */
+  content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;
+  background:rgba(143,180,217,.16);border-radius:2px;
+}
+.timeline::after{                        /* progress, height set by JS as --draw */
+  content:"";position:absolute;left:9px;top:6px;width:2px;
+  height:var(--draw,0px);
+  background:linear-gradient(180deg,var(--sky),var(--gold));
+  border-radius:2px;
+  box-shadow:0 0 18px rgba(217,180,106,.55);
+}
+.tl-item{position:relative;padding-bottom:44px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{                       /* node */
+  content:"";position:absolute;left:-34px;top:6px;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--sky);
+}
+.tl-item.is-lit::before{border-color:var(--gold);background:var(--gold)}
+.tl-year{
+  font-family:"Syne",sans-serif;font-weight:800;
+  font-size:1.02rem;color:var(--gold);letter-spacing:.01em;
+}
+.tl-title{margin-top:4px;font-size:1.14rem;font-weight:700}
+.tl-text{margin-top:8px;color:var(--muted);font-size:.96rem}
+
+/* ============================================================================
+   15. CONTACT + FOOTER
+   ========================================================================= */
+.contact__head{max-width:20ch}
+.socials{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.contact-card{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));margin-top:44px}
+.contact-card a{display:flex;flex-direction:column;gap:8px}
+.contact-card .k{font-size:.78rem;color:var(--muted);letter-spacing:.08em}
+.contact-card .v{font-family:"Syne",sans-serif;font-weight:600;font-size:1.02rem;word-break:break-word}
+.footer{
+  border-top:1px solid rgba(143,180,217,.10);
+  padding:30px 0;color:var(--muted);font-size:.86rem;
+  display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;
+}
+
+/* ============================================================================
+   16. PROJECT MODAL
+   ========================================================================= */
+.modal{
+  position:fixed;inset:0;z-index:150;
+  display:grid;place-items:center;padding:20px;
+  background:rgba(3,5,9,.72);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  opacity:0;visibility:hidden;
+  transition:opacity .35s var(--ease),visibility .35s var(--ease);
+}
+.modal.is-open{opacity:1;visibility:visible}
+.modal__panel{
+  position:relative;width:min(720px,100%);max-height:86vh;overflow-y:auto;
+  padding:30px;border-radius:var(--radius);
+  background:rgba(8,11,19,.92);
+  border:1px solid var(--line);
+  box-shadow:0 40px 90px -40px #000;
+  transform:translateY(18px) scale(.985);
+  transition:transform .35s var(--ease);
+}
+.modal.is-open .modal__panel{transform:none}
+.modal__close{
+  position:absolute;top:16px;right:16px;
+  width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;cursor:pointer;
+  background:rgba(143,180,217,.10);border:1px solid var(--line);
+  color:var(--cream);font-size:1.15rem;line-height:1;
+  transition:background .25s var(--ease),border-color .25s var(--ease),color .25s var(--ease);
+}
+.modal__close:hover{background:rgba(217,180,106,.16);border-color:var(--gold);color:var(--gold)}
+.modal__title{font-size:clamp(1.5rem,4.4vw,2.1rem);padding-right:44px}
+.modal__section{margin-top:22px}
+.modal__section h3{font-size:1rem;color:var(--gold);margin-bottom:10px}
+.modal__list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.modal__list li{position:relative;padding-left:20px;color:var(--muted);font-size:.95rem}
+.modal__list li::before{
+  content:"";position:absolute;left:0;top:.62em;
+  width:8px;height:1px;background:var(--gold);
+}
+.modal__tags{display:flex;flex-wrap:wrap;gap:8px}
+.modal__tags span{
+  padding:6px 12px;border-radius:999px;font-size:.82rem;
+  border:1px solid var(--line);color:var(--sky);background:rgba(143,180,217,.07);
+}
+.modal__shot{
+  margin-top:22px;aspect-ratio:16/9;border-radius:var(--radius-sm);
+  border:1px solid var(--line);display:grid;place-items:center;
+  background:radial-gradient(120% 100% at 20% 0%,rgba(143,180,217,.18),transparent 60%),
+             linear-gradient(140deg,#0b111c,#070a11);
+  color:var(--muted);font-size:.84rem;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;text-align:center;
+  padding:16px;
+}
+
+/* ============================================================================
+   17. RESPONSIVE
+   ========================================================================= */
+@media (max-width:900px){
+  .bento__cell,.bento__cell--half{grid-column:span 6}
+  .nav__inner{width:calc(100% - 28px);gap:12px}
+  .nav__links a{padding:8px 10px;font-size:.82rem}
+}
+/* Mobile: the shade becomes vertical so the copy stays readable */
+@media (max-width:760px){
+  :root{--nav-h:66px}
+  body{font-size:16px}
+  .wrap{width:calc(100% - 32px)}
+  .stage__shade{
+    background:linear-gradient(180deg,
+      rgba(5,7,13,.80) 0%,
+      rgba(5,7,13,.62) 34%,
+      rgba(5,7,13,.74) 62%,
+      rgba(5,7,13,.92) 100%);
+  }
+  .hero__actions{width:100%}
+  .hero__actions .btn{flex:1 1 100%}
+  .timeline{padding-left:30px}
+  .tl-item::before{left:-26px}
+  .modal__panel{padding:24px}
+  /* hint that the link row can be swiped */
+  .nav__links{
+    -webkit-mask-image:linear-gradient(90deg,#000 86%,transparent 100%);
+            mask-image:linear-gradient(90deg,#000 86%,transparent 100%);
+  }
+}
+@media (max-width:380px){
+  body{font-size:15.5px}
+  .wrap{width:calc(100% - 24px)}
+  .card{padding:20px;border-radius:18px}
+  .nav__brand{font-size:.92rem}
+  .nav__links a{padding:7px 9px;font-size:.78rem}
+}
+
+/* ============================================================================
+   18. REDUCED MOTION — disable every animation and transition
+   ========================================================================= */
+@media (prefers-reduced-motion:reduce){
+  html:focus-within{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.001ms !important;animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;scroll-behavior:auto !important;
+  }
+  .step__body{opacity:1;transform:none}
+  .marquee__track{animation:none;transform:none}
+}
+</style>
 </head>
 
 <body>
 
-<!-- ══════════════════════════════════════════════════════════════════════════
-     SVG SPRITE — every icon on the page. Inlined = zero extra requests.
-     ══════════════════════════════════════════════════════════════════════════ -->
-<svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <!-- ── UI ────────────────────────────────────────────────────────────── -->
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-arrow-out" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.2A8.2 8.2 0 0 1 9.8 4 8.4 8.4 0 1 0 20 14.2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
-    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 13 4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-server" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><rect x="3" y="13" width="18" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M7 7.5h.01M7 16.5h.01" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
-    <symbol id="i-bot" viewBox="0 0 24 24"><rect x="3.5" y="8" width="17" height="12" rx="4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 4.5V8M8.5 13.5v1.5M15.5 13.5v1.5M9.5 17h5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="3.2" r="1.3" fill="currentColor"/></symbol>
-    <symbol id="i-rocket" viewBox="0 0 24 24"><path d="M13.5 3.5c3.5-1 6 .5 6 .5s1.5 2.5.5 6c-1 3.5-5 7.5-5 7.5L11 13.5s3.5-4 5-7.5c.7-1.9-.5-2.5-2.5-2.5z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="14.5" cy="8.5" r="1.8" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.5 15.5c-1.5 0-3 1.5-3 4 2.5 0 4-1.5 4-3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
-    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 8.5 4.5L12 12 3.5 7.5 12 3zM4 12l8 4.2 8-4.2M4 16.2l8 4.3 8-4.3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-    <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 2.5c.6 5.2 3.8 8.4 9 9-5.2.6-8.4 3.8-9 9-.6-5.2-3.8-8.4-9-9 5.2-.6 8.4-3.8 9-9z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></symbol>
-    <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.8" y="5" width="18.4" height="14" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m4 7.5 8 5.5 8-5.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
-    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-5.7 7-11a7 7 0 1 0-14 0c0 5.3 7 11 7 11z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/></symbol>
-    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M15.5 5.5v-1a1 1 0 0 0-1-1h-9a2 2 0 0 0-2 2v9a1 1 0 0 0 1 1h1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></symbol>
-    <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" d="M12 1.8a10.2 10.2 0 0 0-3.23 19.9c.51.09.7-.22.7-.49l-.01-1.9c-2.5.55-3.35-.6-3.5-1.25-.1-.3-.6-1.25-1.15-1.5-.35-.2-.9-.7-.02-.72.8-.02 1.4.75 1.6 1.05.9 1.5 2.35 1.07 2.93.82.1-.64.35-1.08.63-1.33-2.2-.25-4.55-1.1-4.55-4.9 0-1.08.4-1.97 1-2.66-.1-.25-.43-1.27.1-2.65 0 0 .82-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.93-1.3 2.75-1.02 2.75-1.02.53 1.38.2 2.4.1 2.65.6.69 1 1.58 1 2.66 0 3.82-2.35 4.65-4.56 4.9.36.31.68.92.68 1.85l-.01 2.75c0 .27.19.59.7.49A10.2 10.2 0 0 0 12 1.8z"/></symbol>
-    <symbol id="i-telegram" viewBox="0 0 24 24"><path fill="currentColor" d="M21.9 4.3 18.8 19.4c-.24 1.06-.87 1.32-1.76.82l-4.87-3.6-2.35 2.26c-.26.26-.48.48-.98.48l.35-4.98 9.05-8.18c.4-.35-.08-.54-.6-.2L6.1 13.05 1.3 11.5c-1.04-.32-1.06-1.04.22-1.55L20.5 2.8c.87-.32 1.63.2 1.4 1.5z"/></symbol>
-    <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3v-11zm7 0h3.8v1.5h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1v5.45h-4v-4.83c0-1.15-.02-2.63-1.6-2.63-1.6 0-1.85 1.25-1.85 2.55v4.91h-4v-11z"/></symbol>
-    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17" cy="7" r="1.25" fill="currentColor"/></symbol>
-    <symbol id="i-docker" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5h13.2a2.4 2.4 0 0 1 2.4 2.4c0 2.1-1.6 3.2-3.6 3.2H4.2A1.2 1.2 0 0 1 3 14.9z"/><path d="M7 10.5V8.1M10.4 10.5V8.1M13.8 10.5V8.1"/><path d="M20.6 11.2c.7-1.6 2.3-2.3 2.3-2.3s.2 1.5-.7 2.8c-.6.9-1.6 1.4-1.6 1.4"/><path d="M6.4 16.1v1.7M9.8 16.1v1.7M13.2 16.1v1.7"/></g></symbol>
-
-    <!-- ── Tech marks (simplified, currentColor) ────────────────────────── -->
-    <symbol id="t-react" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="2.1"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></symbol>
-    <symbol id="t-node" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M12 2.6 21 7.4v9.2L12 21.4 3 16.6V7.4z"/><path d="M9.4 15.4V9.2l5.4 3.1v3.1z" stroke-linejoin="round"/></symbol>
-    <symbol id="t-python" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2.8c-3 0-4.4.8-4.4 2.6v2.4h4.6M12 2.8c3 0 4.4.8 4.4 2.6v3.2H12"/><rect x="7.6" y="2.8" width="4.6" height="5" rx="1.4"/><rect x="11.8" y="11.2" width="4.6" height="5" rx="1.4"/><path d="M12 21.2c3 0 4.4-.8 4.4-2.6v-2.4H12M12 21.2c-3 0-4.4-.8-4.4-2.6v-3.2H12"/></symbol>
-    <symbol id="t-docker" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="10.5" width="17" height="6" rx="1.6"/><path d="M3.6 10.5 2 8.2h2.4l1.4 2.3M6 10.5 4.6 8.2M8.4 10.5 7 8.2M10.8 10.5 9.4 8.2"/><rect x="6" y="7.4" width="2.4" height="2.4" rx=".6"/><rect x="9.2" y="7.4" width="2.4" height="2.4" rx=".6"/><rect x="6" y="4.6" width="2.4" height="2.4" rx=".6"/><circle cx="5.2" cy="19.6" r="1"/><circle cx="8.6" cy="20.4" r="1"/><circle cx="12.2" cy="19.4" r="1"/></symbol>
-    <symbol id="t-git" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3.4"/><path d="M12 8.6V3.5M12 15.4v5.1M8.9 13.6 4 17.4M15.1 10.4 20 6.6" stroke-linecap="round"/></symbol>
-    <symbol id="t-ts" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.6" y="2.6" width="18.8" height="18.8" rx="4.4"/><path d="M6.6 10.2h3.2M8.2 10.2v6M15 10.2c1.9 0 2.6.9 2.6 2.9v3.1M15 13.4h2.4" stroke-linecap="round"/></symbol>
-    <symbol id="t-postgres" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><ellipse cx="12" cy="6.2" rx="7.6" ry="3"/><path d="M4.4 6.2v11.6c0 1.65 3.4 3 7.6 3s7.6-1.35 7.6-3V6.2"/><path d="M4.4 12c0 1.65 3.4 3 7.6 3s7.6-1.35 7.6-3"/></symbol>
-    <symbol id="t-next" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" rx="9.2"/><path d="M8.6 16V8.4l7.6 8.4M15.2 8.4V16" stroke-linecap="round"/></symbol>
-    <symbol id="t-tailwind" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 12c0-3.3 2.2-5.5 5.2-5.5 4 0 4.2 3 6.4 3 1.7 0 2.6-1 2.6-2.6M3 18c0-3.3 2.2-5.5 5.2-5.5 4 0 4.2 3 6.4 3 1.7 0 2.6-1 2.6-2.6"/></symbol>
-    <symbol id="t-graphql" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2.9 20.5 7.5v9L12 21.1 3.5 16.5v-9z"/><path d="M12 2.9v4.3m0 9.6v4.3M3.5 7.5l4.2 2.1m8.6 4.8 4.2 2.1M20.5 7.5l-4.2 2.1M7.7 16.5l4.2-2.4M15.9 9.6 20.5 16.5M3.5 16.5l4.2-2.1M12 7.2 7.7 16.5M12 7.2l4.3 9.3" stroke-linejoin="round"/></symbol>
-    <symbol id="t-redis" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 6.4 20.5 10 12 13.6 3.5 10z"/><path d="m3.5 13 8.5 3.6 8.5-3.6"/></symbol>
-    <symbol id="t-figma" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2.6h3.6a3.6 3.6 0 0 1 0 7.2H12V2.6zM12 9.8h3.6a3.6 3.6 0 0 1 0 7.2H12V9.8zM12 17h3.6a3.6 3.6 0 1 1-3.6 3.6V17z"/><path d="M8.4 2.6h3.6v7.2H8.4a3.6 3.6 0 1 1 0-7.2zM8.4 9.8H12V17H8.4a3.6 3.6 0 1 1 0-7.2z"/></symbol>
-    <symbol id="t-prisma" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M21.4 15.6 12 21.4 2.6 15.6V8.4L12 2.6l9.4 5.8z"/><path d="M12 21.4V2.6"/></symbol>
-    <symbol id="t-linux" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 7.5c0-2 1.4-3.4 3-3.4s3 1.4 3 3.4c0 1.4-.5 2.3-.5 3.4 0 1.9 2.5 2.6 2.5 5.4 0 2.1-2.3 3.6-5 3.6s-5-1.5-5-3.6c0-2.8 2.5-3.5 2.5-5.4 0-1.1-.5-2-.5-3.4z"/><circle cx="11" cy="7" r=".6" fill="currentColor"/><circle cx="13" cy="7" r=".6" fill="currentColor"/><path d="M7.6 20.4c.8 1 2.4 1.6 4.4 1.6s3.6-.6 4.4-1.6"/></symbol>
-    <symbol id="t-mongo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2.6c3.3 3 4.6 6.6 4.6 10.2 0 3.3-2 5.6-4.6 8.6-2.6-3-4.6-5.3-4.6-8.6C7.4 9.2 8.7 5.6 12 2.6z"/><path d="M12 3v18"/></symbol>
-  </defs>
-</svg>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     PRELOADER
-     ══════════════════════════════════════════════════════════════════════════ -->
-<div class="preloader" id="preloader" role="status" aria-live="polite" aria-label="Loading portfolio">
-  <div class="preloader__inner">
-    <p class="preloader__brand">OMADBEK<span>.</span></p>
-    <div class="preloader__track"><span class="preloader__bar" id="preloaderBar"></span></div>
-    <p class="preloader__pct"><span id="preloaderPct">0</span>%</p>
+<!-- ============================================================================
+     LOADER — live percentage counter while frames/photos download
+     ========================================================================= -->
+<div class="loader" id="loader" role="status" aria-live="polite">
+  <div class="loader__inner">
+    <div class="loader__pct"><span id="loaderPct">0</span><sup>%</sup></div>
+    <p class="loader__label">Loading portrait</p>
+    <div class="loader__track"><span id="loaderBar"></span></div>
+    <p class="loader__note" id="loaderNote">Preparing frame sequence</p>
   </div>
-  <!-- Curtains that split apart to reveal the page -->
-  <span class="curtain curtain--t"></span>
-  <span class="curtain curtain--b"></span>
 </div>
 
-<!-- Skip link for keyboard / screen-reader users -->
-<a class="skip-link" href="#main">Skip to content</a>
+<!-- ============================================================================
+     SCROLL PROGRESS BAR
+     ========================================================================= -->
+<div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
 
-<!-- Ambient layers: gradient mesh, floating orbs, film grain -->
-<div class="bg-mesh" aria-hidden="true">
-  <span class="orb orb--1"></span>
-  <span class="orb orb--2"></span>
-  <span class="orb orb--3"></span>
-</div>
-<div class="bg-grid" aria-hidden="true"></div>
-<div class="grain" aria-hidden="true"></div>
-
-<!-- Custom cursor (pointer-fine devices only) -->
-<div class="cursor" id="cursor" aria-hidden="true">
-  <span class="cursor__dot"></span>
-  <span class="cursor__ring"></span>
-</div>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     HEADER
-     ══════════════════════════════════════════════════════════════════════════ -->
-<header class="nav" id="nav">
-  <div class="nav__progress" id="scrollProgress"><span></span></div>
-
-  <div class="nav__inner container">
-    <a class="logo" href="#hero" aria-label="Xoshimov Omadbek — home">
-      <span class="logo__mark" aria-hidden="true">&lt;/&gt;</span>
-      <span class="logo__text">omadbek<span class="logo__dot">.</span></span>
-    </a>
-
-    <nav class="nav__links" id="navLinks" aria-label="Primary">
-      <a href="#about"       class="nav__link">About</a>
-      <a href="#skills"      class="nav__link">Skills</a>
-      <a href="#projects"    class="nav__link">Work</a>
-      <a href="#experience"  class="nav__link">Journey</a>
-      <a href="#services"    class="nav__link">Services</a>
-      <a href="#contact"     class="nav__link">Contact</a>
-      <span class="nav__pill" id="navPill" aria-hidden="true"></span>
+<!-- ============================================================================
+     NAVBAR
+     ========================================================================= -->
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#home">Xoshimov&nbsp;Omadbek<i>.</i></a>
+    <nav aria-label="Primary">
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#tech">Tech Stack</a></li>
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-
-    <div class="nav__actions">
-      <!-- The label states the action, so this is a plain button, not a toggle:
-           adding aria-pressed here would claim a state the label contradicts.
-           main.js rewrites the label on every change. -->
-      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to light theme">
-        <svg class="icon icon--sun"  aria-hidden="true"><use href="#i-sun"/></svg>
-        <svg class="icon icon--moon" aria-hidden="true"><use href="#i-moon"/></svg>
-      </button>
-      <a class="btn btn--sm btn--ghost nav__cta" href="#contact" data-magnetic>
-        Let&#39;s talk
-        <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-      </a>
-      <button class="icon-btn nav__burger" id="navToggle" type="button"
-              aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
-        <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
-      </button>
-    </div>
   </div>
 </header>
 
-<!-- Mobile drawer -->
-<div class="drawer" id="mobileMenu" hidden>
-  <nav class="drawer__nav" aria-label="Mobile">
-    <a href="#about"><span class="drawer__num">01</span> About</a>
-    <a href="#skills"><span class="drawer__num">02</span> Skills</a>
-    <a href="#projects"><span class="drawer__num">03</span> Work</a>
-    <a href="#experience"><span class="drawer__num">04</span> Journey</a>
-    <a href="#services"><span class="drawer__num">05</span> Services</a>
-    <a href="#contact"><span class="drawer__num">06</span> Contact</a>
-  </nav>
-  <div class="drawer__foot">
-    <a href="mailto:omadbekxoshimov792@gmail.com">omadbekxoshimov792@gmail.com</a>
-    <span>Tashkent, Uzbekistan · UTC+5</span>
+<!-- ============================================================================
+     CANVAS STAGE — the scroll-scrubbed portrait (decorative)
+     ========================================================================= -->
+<div class="stage" aria-hidden="true">
+  <canvas id="portrait" role="img" aria-label="Portrait of Xoshimov Omadbek"></canvas>
+  <div class="stage__shade"></div>
+</div>
+
+<main>
+
+  <!-- ==========================================================================
+       SCROLL STORY — four full-screen steps
+       ====================================================================== -->
+  <section class="story" id="home">
+
+    <!-- Step 1 · Hero -->
+    <div class="step" data-step="0">
+      <div class="wrap">
+        <div class="step__body">
+          <h1 class="hero__name">Xoshimov<br>Omadbek</h1>
+          <p class="hero__role">Software Engineer&nbsp;/ Full-Stack Developer&nbsp;/ Web Coder</p>
+          <p class="hero__slogan">Building the Future with Code.</p>
+          <div class="hero__actions">
+            <a class="btn btn--gold" href="#projects">Loyihalarimni ko'rish</a>
+            <a class="btn btn--ghost" href="#contact">Men bilan bog'lanish</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 · Telegram bots -->
+    <div class="step" data-step="1">
+      <div class="wrap">
+        <div class="step__body">
+          <h2 class="story-line">Telegram bots that solve <em>real problems</em>.</h2>
+          <p class="story-sub">Automations that actually ship — from advertising boards to
+            institute platforms, built to be used every single day.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 · Modern websites -->
+    <div class="step" data-step="2">
+      <div class="wrap">
+        <div class="step__body">
+          <h2 class="story-line">Modern websites, <em>fast</em> and clean.</h2>
+          <p class="story-sub">Careful interfaces, quick load times and code that stays
+            readable long after launch day.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 4 · Invitation -->
+    <div class="step" data-step="3">
+      <div class="wrap">
+        <div class="step__body">
+          <h2 class="story-line">Let's build something <em>together</em>.</h2>
+          <p class="story-sub">Scroll down to see the work.</p>
+        </div>
+      </div>
+      <div class="scroll-hint" id="scrollHint" aria-hidden="true">
+        <span>scroll</span>
+        <span class="scroll-hint__drop"></span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ==========================================================================
+       CONTENT SECTIONS — fade from the photo into the solid background
+       ====================================================================== -->
+  <div class="content">
+
+    <!-- ABOUT · bento grid -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">About <span class="gold">me</span></h2>
+          <p class="section__lead">A developer who likes turning ideas into things people
+            can actually use.</p>
+        </div>
+
+        <div class="bento">
+          <article class="card bento__bio tilt" data-tilt>
+            <div class="card__row">
+              <div class="tile" aria-hidden="true">OM</div>
+              <h3 class="card__title">Software Engineering student &amp; developer</h3>
+            </div>
+            <p class="card__text">I'm a Software Engineering student and developer focused on
+              building modern digital products. I turn ideas into practical web, mobile, and
+              automation solutions with clean design and real-world impact.</p>
+          </article>
+
+          <article class="card bento__cell tilt" data-tilt>
+            <div class="card__row">
+              <div class="tile" aria-hidden="true">ED</div>
+              <h3 class="card__title">Education</h3>
+            </div>
+            <p class="card__text">Fergana State Technical University (FSTU) — B.Sc. in Software
+              Engineering, 2024 – Present. Focused on software development, programming,
+              algorithms, databases, and modern technology.</p>
+          </article>
+
+          <article class="card bento__cell tilt" data-tilt>
+            <div class="card__row">
+              <div class="tile" aria-hidden="true">FO</div>
+              <h3 class="card__title">Focus area</h3>
+            </div>
+            <p class="card__text">Software Development &amp; Digital Product Development.
+              Building web applications, mobile apps, Telegram bots, and practical software
+              solutions.</p>
+          </article>
+
+          <article class="card bento__cell tilt" data-tilt>
+            <div class="card__row">
+              <div class="tile" aria-hidden="true">GO</div>
+              <h3 class="card__title">Goal</h3>
+            </div>
+            <p class="card__text">To become a skilled Software Engineer and build innovative
+              digital products that solve real-world problems and create meaningful impact.</p>
+          </article>
+
+          <article class="card bento__cell tilt" data-tilt>
+            <div class="card__row">
+              <div class="tile" aria-hidden="true">IN</div>
+              <h3 class="card__title">Interests</h3>
+            </div>
+            <div class="tag-list">
+              <span class="tag">Technology</span>
+              <span class="tag">Software Development</span>
+              <span class="tag">AI</span>
+              <span class="tag">UI/UX Design</span>
+              <span class="tag">Entrepreneurship</span>
+              <span class="tag">Innovation</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">Skills</h2>
+          <p class="section__lead">The tools I reach for, grouped by what they do.</p>
+        </div>
+        <div class="skills" id="skillsGrid"><!-- rendered by JS --></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">Selected <span class="gold">projects</span></h2>
+          <p class="section__lead">Real bots and platforms in daily use. Open a card for the
+            full breakdown.</p>
+        </div>
+        <div class="projects" id="projectsGrid"><!-- rendered by JS --></div>
+      </div>
+    </section>
+
+    <!-- TECH STACK · infinite marquee -->
+    <section class="section" id="tech">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">Tech <span class="gold">stack</span></h2>
+          <p class="section__lead">What I build with, day in and day out.</p>
+        </div>
+      </div>
+      <div class="marquee" id="marquee" aria-label="Technologies I use"><!-- rendered by JS --></div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section class="section" id="timeline">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">Timeline</h2>
+          <p class="section__lead">From first lines of code to a professional engineering career.</p>
+        </div>
+        <div class="timeline" id="timeline">
+          <div class="tl-item">
+            <p class="tl-year">2024</p>
+            <h3 class="tl-title">Started programming</h3>
+            <p class="tl-text">Foundations: syntax, logic, algorithms and the beginning of a
+              Software Engineering degree at FSTU.</p>
+          </div>
+          <div class="tl-item">
+            <p class="tl-year">2025</p>
+            <h3 class="tl-title">Python / Web development</h3>
+            <p class="tl-text">Went deep into Python and started shipping real web products and
+              automation on top of it.</p>
+          </div>
+          <div class="tl-item">
+            <p class="tl-year">2026</p>
+            <h3 class="tl-title">Real-world projects</h3>
+            <p class="tl-text">Telegram bots and platforms that people use every day — built,
+              deployed and maintained.</p>
+          </div>
+          <div class="tl-item">
+            <p class="tl-year">Future</p>
+            <h3 class="tl-title">Professional Software Engineer</h3>
+            <p class="tl-text">Joining a product team, growing as an engineer and building
+              software with lasting impact.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title contact__head">Let's build something <span class="gold">together</span></h2>
+          <p class="section__lead">Open to software engineering roles, freelance work and
+            interesting collaborations.</p>
+        </div>
+
+        <a class="btn btn--gold" href="https://t.me/omadbek_xosh1mov" target="_blank" rel="noopener noreferrer">
+          Message me on Telegram
+        </a>
+
+        <div class="contact-card">
+          <article class="card tilt" data-tilt>
+            <a href="https://t.me/omadbek_xosh1mov" target="_blank" rel="noopener noreferrer">
+              <span class="k">Telegram</span><span class="v">@omadbek_xosh1mov</span>
+            </a>
+          </article>
+          <article class="card tilt" data-tilt>
+            <a href="mailto:omadbekxoshimov523@gmail.com">
+              <span class="k">Email</span><span class="v">omadbekxoshimov523@gmail.com</span>
+            </a>
+          </article>
+          <article class="card tilt" data-tilt>
+            <a href="https://github.com/omadbekxoshimov523-coder" target="_blank" rel="noopener noreferrer">
+              <span class="k">GitHub</span><span class="v">omadbekxoshimov523-coder</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap" style="display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between">
+        <span>© 2026 Xoshimov Omadbek</span>
+        <span>Built with HTML, CSS and vanilla JavaScript.</span>
+      </div>
+    </footer>
+
+  </div>
+</main>
+
+<!-- ============================================================================
+     PROJECT MODAL
+     ========================================================================= -->
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+  <div class="modal__panel" id="modalPanel">
+    <button class="modal__close" id="modalClose" type="button" aria-label="Close project details">&#215;</button>
+    <h3 class="modal__title" id="modalTitle"></h3>
+    <p class="card__text" id="modalDesc"></p>
+
+    <div class="modal__section">
+      <h4 class="modal__h" style="font-size:1rem;color:var(--gold);margin-bottom:10px">Technologies</h4>
+      <div class="modal__tags" id="modalTech"></div>
+    </div>
+
+    <div class="modal__section">
+      <h4 style="font-size:1rem;color:var(--gold);margin-bottom:10px">Key features</h4>
+      <ul class="modal__list" id="modalFeatures"></ul>
+    </div>
+
+    <div class="modal__shot" id="modalShot"></div>
+
+    <div class="modal__section">
+      <h4 style="font-size:1rem;color:var(--gold);margin-bottom:12px">Links</h4>
+      <div class="project__links" style="border:0;padding:0;margin:0" id="modalLinks"></div>
+    </div>
   </div>
 </div>
 
-<main id="main">
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     1 · HERO
-     ══════════════════════════════════════════════════════════════════════════ -->
-<section class="hero" id="hero" aria-labelledby="heroTitle">
-  <div class="hero__spotlight" id="heroSpotlight" aria-hidden="true"></div>
-
-  <div class="hero__inner container">
-    <div class="hero__copy">
-      <p class="hero__eyebrow reveal">
-        <span class="pulse" aria-hidden="true"></span>
-        Available for new projects · 2026
-      </p>
-
-      <h1 class="hero__title" id="heroTitle">
-        <span class="line"><span class="split" data-split="words">Hi, I&#39;m Omadbek</span></span>
-        <span class="line">
-          <span class="split" data-split="words">a <em>full-stack</em></span>
-        </span>
-        <span class="line">
-          <span class="split" data-split="words">developer.</span>
-        </span>
-      </h1>
-
-      <p class="hero__type reveal">
-        <span class="hero__type-label">I&nbsp;work as a</span>
-        <span class="typewriter" id="typewriter">
-          <span class="typewriter__out" id="typewriterOut">Frontend Engineer</span>
-        </span>
-      </p>
-
-      <p class="hero__lead reveal">
-        Software Engineer &amp; web coder from Tashkent. I turn ideas into fast,
-        accessible, production-ready products — from the React interface down to the
-        PostgreSQL schema and the Docker pipeline that ships it.
-      </p>
-
-      <div class="hero__cta reveal">
-        <a class="btn btn--primary" href="#projects" data-magnetic>
-          View Projects
-          <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-        </a>
-        <a class="btn btn--ghost" href="assets/Xoshimov-Omadbek-CV.pdf" download data-magnetic>
-          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
-          Download CV
-        </a>
-      </div>
-
-      <ul class="hero__meta reveal" aria-label="Quick facts">
-        <li><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg> Tashkent, Uzbekistan</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg> React · Node · Python</li>
-        <li><svg class="icon" aria-hidden="true"><use href="#i-server"/></svg> Docker &amp; PostgreSQL</li>
-      </ul>
-    </div>
-
-    <!-- ── Portrait stage: tilt + parallax layers ─────────────────────── -->
-    <div class="hero__stage" id="heroStage">
-      <div class="stage__depth" data-depth="-26" aria-hidden="true"></div>
-      <div class="stage__blob" data-depth="14" aria-hidden="true"></div>
-      <div class="stage__ring"  data-depth="-10" aria-hidden="true"></div>
-
-      <!-- Orbit tracks (CSS-animated; JS only nudges the depth) -->
-      <div class="orbit orbit--back"  data-depth="-34" aria-hidden="true">
-        <span class="chip" style="--a:0deg;   --r:47%"><svg class="icon" aria-hidden="true"><use href="#t-docker"/></svg></span>
-        <span class="chip" style="--a:120deg; --r:47%"><svg class="icon" aria-hidden="true"><use href="#t-postgres"/></svg></span>
-        <span class="chip" style="--a:240deg; --r:47%"><svg class="icon" aria-hidden="true"><use href="#t-python"/></svg></span>
-      </div>
-      <div class="orbit orbit--front" data-depth="30" aria-hidden="true">
-        <span class="chip" style="--a:60deg;  --r:52%"><svg class="icon" aria-hidden="true"><use href="#t-react"/></svg></span>
-        <span class="chip" style="--a:180deg; --r:52%"><svg class="icon" aria-hidden="true"><use href="#t-node"/></svg></span>
-        <span class="chip" style="--a:300deg; --r:52%"><svg class="icon" aria-hidden="true"><use href="#t-git"/></svg></span>
-      </div>
-
-      <div class="stage__portrait" data-depth="18">
-        <!-- The transparent PNG is the canonical asset. A lighter 154 KB variant is
-             served to small screens; swap in a WebP (see README) to cut this further. -->
-        <picture>
-          <source srcset="assets/me-sm.png" media="(max-width: 720px)">
-          <img src="assets/me.png" width="324" height="761" fetchpriority="high"
-               decoding="async" alt="Portrait of Xoshimov Omadbek, full-stack web developer"
-               class="portrait">
-        </picture>
-        <div class="stage__glow" aria-hidden="true"></div>
-      </div>
-
-      <!-- Floating credential badges -->
-      <div class="stage__badge stage__badge--tl" data-depth="-20" aria-hidden="true">
-        <span class="dot dot--live"></span> React &amp; Next.js
-      </div>
-      <div class="stage__badge stage__badge--br" data-depth="24" aria-hidden="true">
-        <span class="dot"></span> PostgreSQL · Docker
-      </div>
-    </div>
-  </div>
-
-  <a class="hero__scroll" href="#about" aria-label="Scroll to about section">
-    <span class="hero__scroll-line" aria-hidden="true"></span>
-    Scroll
-  </a>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     2 · ABOUT
-     ══════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="about" aria-labelledby="aboutTitle">
-  <div class="container">
-    <header class="sec-head">
-      <p class="sec-head__index reveal"><span>01</span> About</p>
-      <h2 class="sec-head__title reveal" id="aboutTitle">
-        Engineer first.<br><em>Pixel-obsessed</em> second.
-      </h2>
-      <p class="sec-head__sub reveal">
-        I care about the boring parts: database indexes, cold starts, keyboard focus,
-        and error states nobody screenshots. That's the difference between a demo and a product.
-      </p>
-    </header>
-
-    <!-- Animated counters -->
-    <ul class="counters" data-counters>
-      <li class="counter glass reveal">
-        <span class="counter__num" data-count="4" data-suffix="+">0</span>
-        <span class="counter__label">Years experience</span>
-      </li>
-      <li class="counter glass reveal">
-        <span class="counter__num" data-count="25" data-suffix="+">0</span>
-        <span class="counter__label">Projects shipped</span>
-      </li>
-      <li class="counter glass reveal">
-        <span class="counter__num" data-count="20" data-suffix="+">0</span>
-        <span class="counter__label">Technologies</span>
-      </li>
-      <li class="counter glass reveal">
-        <span class="counter__num" data-count="100" data-suffix="%">0</span>
-        <span class="counter__label">Client satisfaction</span>
-      </li>
-    </ul>
-    <!-- ↑ UPDATE the four data-count values above to match reality. -->
-
-    <!-- Bento grid -->
-    <div class="bento">
-      <article class="bento__cell bento__cell--bio glass reveal">
-        <p class="bento__label">The short version</p>
-        <p class="bento__text">
-          I'm a <strong>Software Engineer and web coder</strong> working across the whole stack.
-          I started with markup and CSS, moved into React and Next.js on the front end, and now
-          spend most of my time in Node.js and Python services, PostgreSQL schemas and Docker
-          deployments. I like owning a problem end-to-end — from the first wireframe to the
-          pull request that ships it.
-        </p>
-        <p class="bento__text">
-          When I'm not shipping, I'm usually reading about distributed systems,
-          sketching interface ideas in Figma, or helping other developers on GitHub.
-        </p>
-        <div class="bento__actions">
-          <a class="chip-link" href="https://github.com/omadbekxoshimov523-coder" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> GitHub
-          </a>
-          <a class="chip-link" href="https://t.me/omadbek_xosh1mov" target="_blank" rel="noopener noreferrer">
-            <svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg> Telegram
-          </a>
-        </div>
-      </article>
-
-      <article class="bento__cell glass reveal">
-        <p class="bento__label">Front end</p>
-        <p class="bento__big">Pixel-perfect interfaces that stay fast at 60&nbsp;fps.</p>
-        <ul class="tick-list">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> React · Next.js · TypeScript</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Design systems &amp; component APIs</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> WebGL / Canvas micro-interactions</li>
-        </ul>
-      </article>
-
-      <article class="bento__cell glass reveal">
-        <p class="bento__label">Back end</p>
-        <p class="bento__big">APIs with sane contracts and boring, reliable infrastructure.</p>
-        <ul class="tick-list">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Node.js · Express · FastAPI</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> JWT auth, RBAC, rate limiting</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> PostgreSQL schema design</li>
-        </ul>
-      </article>
-
-      <article class="bento__cell bento__cell--code glass reveal">
-        <p class="bento__label">Currently into</p>
-        <pre class="code-block"><code><span class="c-key">const</span> <span class="c-var">stack</span> = {
-  ui:   [<span class="c-str">'React'</span>, <span class="c-str">'Next.js'</span>, <span class="c-str">'Tailwind'</span>],
-  api:  [<span class="c-str">'Node.js'</span>, <span class="c-str">'FastAPI'</span>, <span class="c-str">'GraphQL'</span>],
-  data: [<span class="c-str">'PostgreSQL'</span>, <span class="c-str">'Redis'</span>, <span class="c-str">'Prisma'</span>],
-  ops:  [<span class="c-str">'Docker'</span>, <span class="c-str">'GitHub Actions'</span>, <span class="c-str">'Nginx'</span>]
-};</code></pre>
-      </article>
-
-      <article class="bento__cell bento__cell--quote glass reveal">
-        <svg class="icon icon--xl" aria-hidden="true"><use href="#i-spark"/></svg>
-        <blockquote>
-          <p>“Ship it, then make it fast. Nobody has ever praised a product that
-             didn't exist yet.”</p>
-          <footer>— my own rule, tattooed on the wall</footer>
-        </blockquote>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     3 · SKILLS
-     ══════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="skills" aria-labelledby="skillsTitle">
-  <div class="container">
-    <header class="sec-head sec-head--center">
-      <p class="sec-head__index reveal"><span>02</span> Toolkit</p>
-      <h2 class="sec-head__title reveal" id="skillsTitle">The stack I reach for</h2>
-      <p class="sec-head__sub reveal">Boring tools that scale, plus the fun ones that make interfaces feel alive.</p>
-    </header>
-  </div>
-
-  <!-- Infinite marquees -->
-  <div class="marquees" aria-hidden="true">
-    <div class="marquee" data-marquee data-speed="38">
-      <div class="marquee__track">
-        <!-- duplicated by JS for a seamless loop -->
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-react"/></svg> React</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-next"/></svg> Next.js</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-ts"/></svg> TypeScript</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-node"/></svg> Node.js</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-python"/></svg> Python</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-postgres"/></svg> PostgreSQL</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-docker"/></svg> Docker</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-git"/></svg> Git</span>
-      </div>
-    </div>
-    <div class="marquee marquee--reverse" data-marquee data-speed="44">
-      <div class="marquee__track">
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-tailwind"/></svg> Tailwind</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-graphql"/></svg> GraphQL</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-redis"/></svg> Redis</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-prisma"/></svg> Prisma</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-figma"/></svg> Figma</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-mongo"/></svg> MongoDB</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-linux"/></svg> Linux</span>
-        <span class="marquee__item"><svg class="icon" aria-hidden="true"><use href="#t-ts"/></svg> Zod</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="rings">
-      <div class="ring glass reveal" data-ring>
-        <svg class="ring__svg" viewBox="0 0 120 120" aria-hidden="true">
-          <circle class="ring__track" cx="60" cy="60" r="52"/>
-          <circle class="ring__bar"  cx="60" cy="60" r="52" data-value="92"/>
-        </svg>
-        <span class="ring__pct"><span class="ring__num">0</span>%</span>
-        <span class="ring__label">Frontend</span>
-      </div>
-      <div class="ring glass reveal" data-ring>
-        <svg class="ring__svg" viewBox="0 0 120 120" aria-hidden="true">
-          <circle class="ring__track" cx="60" cy="60" r="52"/>
-          <circle class="ring__bar"  cx="60" cy="60" r="52" data-value="85"/>
-        </svg>
-        <span class="ring__pct"><span class="ring__num">0</span>%</span>
-        <span class="ring__label">Backend</span>
-      </div>
-      <div class="ring glass reveal" data-ring>
-        <svg class="ring__svg" viewBox="0 0 120 120" aria-hidden="true">
-          <circle class="ring__track" cx="60" cy="60" r="52"/>
-          <circle class="ring__bar"  cx="60" cy="60" r="52" data-value="78"/>
-        </svg>
-        <span class="ring__pct"><span class="ring__num">0</span>%</span>
-        <span class="ring__label">Databases</span>
-      </div>
-      <div class="ring glass reveal" data-ring>
-        <svg class="ring__svg" viewBox="0 0 120 120" aria-hidden="true">
-          <circle class="ring__track" cx="60" cy="60" r="52"/>
-          <circle class="ring__bar"  cx="60" cy="60" r="52" data-value="88"/>
-        </svg>
-        <span class="ring__pct"><span class="ring__num">0</span>%</span>
-        <span class="ring__label">DevOps</span>
-      </div>
-    </div>
-
-    <div class="pillars">
-      <article class="pillar glass reveal">
-        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-layers"/></svg>
-        <h3>Frontend</h3>
-        <p>React and Next.js interfaces built around a real design system, with motion that
-           reinforces state instead of decorating it.</p>
-        <div class="tag-row">
-          <span class="tag">React</span><span class="tag">Next.js</span><span class="tag">TypeScript</span>
-          <span class="tag">Tailwind</span><span class="tag">Framer Motion</span><span class="tag">Redux</span>
-        </div>
-      </article>
-      <article class="pillar glass reveal">
-        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-server"/></svg>
-        <h3>Backend</h3>
-        <p>REST and GraphQL services with validation, authentication, rate limits and
-           migrations that can be rolled back.</p>
-        <div class="tag-row">
-          <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">FastAPI</span>
-          <span class="tag">GraphQL</span><span class="tag">JWT</span><span class="tag">Celery</span>
-        </div>
-      </article>
-      <article class="pillar glass reveal">
-        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-docker"/></svg>
-        <h3>DevOps &amp; Tools</h3>
-        <p>Reproducible environments and one-command deploys, so shipping on a Friday is
-           a decision, not an accident.</p>
-        <div class="tag-row">
-          <span class="tag">Docker</span><span class="tag">PostgreSQL</span><span class="tag">Redis</span>
-          <span class="tag">Git</span><span class="tag">GitHub Actions</span><span class="tag">Nginx</span>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     4 · PROJECTS
-     ══════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="projects" aria-labelledby="projectsTitle">
-  <div class="container">
-    <header class="sec-head">
-      <p class="sec-head__index reveal"><span>03</span> Selected work</p>
-      <h2 class="sec-head__title reveal" id="projectsTitle">
-        Things I&#39;ve <em>shipped</em>,<br>not just screenshotted.
-      </h2>
-      <p class="sec-head__sub reveal">
-        Hover a card for the case study. Every project below is a real, running application —
-        API, database and deployment included.
-      </p>
-    </header>
-
-    <ul class="work-grid">
-      <!-- 1 · BACKEND SHOWCASE -->
-      <li class="work glass reveal" data-tilt data-project="nexus">
-        <div class="work__media">
-          <img src="assets/projects/01-nexus-commerce.svg" width="1200" height="750" loading="lazy" decoding="async"
-               alt="Nexus Commerce admin dashboard showing sales charts and order tables">
-          <span class="work__badge">Full-stack</span>
-        </div>
-        <div class="work__body">
-          <h3 class="work__title">Nexus Commerce</h3>
-          <p class="work__desc">
-            Multi-vendor storefront on Next.js with a Node.js ordering service, role-based
-            staff accounts and a normalised PostgreSQL schema for inventory, orders and payouts.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Next.js</span><span class="tag">Node.js</span>
-            <span class="tag">PostgreSQL</span><span class="tag">Docker</span>
-          </div>
-          <div class="work__links">
-            <a class="btn btn--xs btn--ghost" href="[LIVE_DEMO_URL]" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> Live demo
-            </a>
-            <a class="btn btn--xs btn--ghost" href="[GITHUB_REPO_URL]" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> Code
-            </a>
-            <button class="btn btn--xs btn--link" type="button" data-open-project="nexus">
-              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-            </button>
-          </div>
-        </div>
-      </li>
-
-      <!-- 2 · BACKEND SHOWCASE -->
-      <li class="work glass reveal" data-tilt data-project="taskflow">
-        <div class="work__media">
-          <img src="assets/projects/02-taskflow-api.svg" width="1200" height="750" loading="lazy" decoding="async"
-               alt="TaskFlow API editor window with a JSON response and Docker container status">
-          <span class="work__badge">Backend</span>
-        </div>
-        <div class="work__body">
-          <h3 class="work__title">TaskFlow API</h3>
-          <p class="work__desc">
-            Production REST service: JWT auth with refresh rotation, schema-validated input,
-            cursor pagination, Redis-backed rate limiting and a Docker Compose stack that boots
-            in under ten seconds.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Node.js</span><span class="tag">Express</span>
-            <span class="tag">Redis</span><span class="tag">Zod</span><span class="tag">Docker</span>
-          </div>
-          <div class="work__links">
-            <a class="btn btn--xs btn--ghost" href="[API_DOCS_URL]" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> API docs
-            </a>
-            <a class="btn btn--xs btn--ghost" href="[GITHUB_REPO_URL]" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg> Code
-            </a>
-            <button class="btn btn--xs btn--link" type="button" data-open-project="taskflow">
-              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-            </button>
-          </div>
-        </div>
-      </li>
-
-      <!-- 3 -->
-      <li class="work glass reveal" data-tilt data-project="analytics">
-        <div class="work__media">
-          <img src="assets/projects/03-analytics-studio.svg" width="1200" height="750" loading="lazy" decoding="async"
-               alt="Analytics Studio dashboard with conversion donut chart and funnel bars">
-          <span class="work__badge">Frontend</span>
-        </div>
-        <div class="work__body">
-          <h3 class="work__title">Analytics Studio</h3>
-          <p class="work__desc">
-            Real-time reporting UI over a Postgres read replica. Virtualised tables stay smooth
-            at 100k rows, and every chart degrades to an accessible table for screen readers.
-          </p>
-          <div class="tag-row">
-            <span class="tag">React</span><span class="tag">TypeScript</span>
-            <span class="tag">D3</span><span class="tag">TanStack Query</span>
-          </div>
-          <div class="work__links">
-            <a class="btn btn--xs btn--ghost" href="[LIVE_DEMO_URL]" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> Live demo
-            </a>
-            <button class="btn btn--xs btn--link" type="button" data-open-project="analytics">
-              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-            </button>
-          </div>
-        </div>
-      </li>
-
-      <!-- 4 -->
-      <li class="work glass reveal" data-tilt data-project="uzmarket">
-        <div class="work__media">
-          <img src="assets/projects/04-uzmarket-bot.svg" width="1200" height="750" loading="lazy" decoding="async"
-               alt="UzMarket Telegram bot conversation with product cards and payment methods">
-          <span class="work__badge">Automation</span>
-        </div>
-        <div class="work__body">
-          <h3 class="work__title">UzMarket Bot</h3>
-          <p class="work__desc">
-            Telegram sales funnel with a session-aware dialogue state machine, Click and Payme
-            payment handoff, and a Postgres-backed order pipeline that syncs stock in real time.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Node.js</span><span class="tag">Telegram Bot API</span>
-            <span class="tag">PostgreSQL</span><span class="tag">Redis</span>
-          </div>
-          <div class="work__links">
-            <a class="btn btn--xs btn--ghost" href="[LIVE_DEMO_URL]" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> Live demo
-            </a>
-            <button class="btn btn--xs btn--link" type="button" data-open-project="uzmarket">
-              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-            </button>
-          </div>
-        </div>
-      </li>
-
-      <!-- 5 -->
-      <li class="work glass reveal" data-tilt data-project="nova">
-        <div class="work__media">
-          <img src="assets/projects/05-novastudio-cms.svg" width="1200" height="750" loading="lazy" decoding="async"
-               alt="Nova Studio CMS content grid with publish status chips">
-          <span class="work__badge">CMS</span>
-        </div>
-        <div class="work__body">
-          <h3 class="work__title">Nova Studio CMS</h3>
-          <p class="work__desc">
-            Headless publishing platform with draft/review workflow, incremental static
-            regeneration and image handling on a CDN edge — 98 Lighthouse on the public site.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Next.js</span><span class="tag">Prisma</span>
-            <span class="tag">PostgreSQL</span><span class="tag">Cloudflare</span>
-          </div>
-          <div class="work__links">
-            <a class="btn btn--xs btn--ghost" href="[LIVE_DEMO_URL]" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> Live demo
-            </a>
-            <button class="btn btn--xs btn--link" type="button" data-open-project="nova">
-              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-            </button>
-          </div>
-        </div>
-      </li>
-
-      <!-- 6 -->
-      <li class="work glass reveal" data-tilt data-project="clinic">
-        <div class="work__media">
-          <img src="assets/projects/06-clinicflow.svg" width="1200" height="750" loading="lazy" decoding="async"
-               alt="ClinicFlow mobile booking screens with doctor list and available time slots">
-          <span class="work__badge">Mobile</span>
-        </div>
-        <div class="work__body">
-          <h3 class="work__title">ClinicFlow</h3>
-          <p class="work__desc">
-            Appointment booking service with atomic slot locking to prevent double bookings,
-            SMS and Telegram reminders, and a FastAPI backend containerised for CI/CD.
-          </p>
-          <div class="tag-row">
-            <span class="tag">FastAPI</span><span class="tag">PostgreSQL</span>
-            <span class="tag">Docker</span><span class="tag">Redis</span>
-          </div>
-          <div class="work__links">
-            <a class="btn btn--xs btn--ghost" href="[LIVE_DEMO_URL]" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" aria-hidden="true"><use href="#i-arrow-out"/></svg> Live demo
-            </a>
-            <button class="btn btn--xs btn--link" type="button" data-open-project="clinic">
-              Case study <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-            </button>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     5 · EXPERIENCE / TIMELINE
-     ══════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="experience" aria-labelledby="expTitle">
-  <div class="container">
-    <header class="sec-head">
-      <p class="sec-head__index reveal"><span>04</span> Journey</p>
-      <h2 class="sec-head__title reveal" id="expTitle">Where the work took me</h2>
-      <p class="sec-head__sub reveal">A short history of shipping things and learning what breaks.</p>
-    </header>
-
-    <ol class="timeline" data-timeline>
-      <li class="tl__item reveal">
-        <span class="tl__dot" aria-hidden="true"></span>
-        <div class="tl__card glass">
-          <p class="tl__meta">2024 — Present · Tashkent</p>
-          <h3 class="tl__title">Full-Stack Web Developer</h3>
-          <p class="tl__text">
-            Building and maintaining web applications end-to-end for clients across Central Asia.
-            Owning everything from the React front end to the Docker deployment, including database
-            design, API contracts and CI/CD pipelines.
-          </p>
-          <div class="tag-row">
-            <span class="tag">React</span><span class="tag">Node.js</span>
-            <span class="tag">PostgreSQL</span><span class="tag">Docker</span>
-          </div>
-        </div>
-      </li>
-
-      <li class="tl__item reveal">
-        <span class="tl__dot" aria-hidden="true"></span>
-        <div class="tl__card glass">
-          <p class="tl__meta">2023 — 2024</p>
-          <h3 class="tl__title">Backend Developer</h3>
-          <p class="tl__text">
-            Designed REST APIs and authentication flows, moved a legacy codebase from MySQL to
-            PostgreSQL with zero downtime, and cut p95 response times by roughly 60% through
-            indexing and query work.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Express</span><span class="tag">FastAPI</span>
-            <span class="tag">JWT</span><span class="tag">Redis</span>
-          </div>
-        </div>
-      </li>
-
-      <li class="tl__item reveal">
-        <span class="tl__dot" aria-hidden="true"></span>
-        <div class="tl__card glass">
-          <p class="tl__meta">2022 — 2023</p>
-          <h3 class="tl__title">Frontend Developer</h3>
-          <p class="tl__text">
-            Shipped marketing sites and dashboards, turned a pile of inconsistent mockups into a
-            component library, and learned the hard way that accessibility is cheaper to build in
-            than to retrofit.
-          </p>
-          <div class="tag-row">
-            <span class="tag">JavaScript</span><span class="tag">React</span>
-            <span class="tag">Sass</span><span class="tag">Figma</span>
-          </div>
-        </div>
-      </li>
-
-      <li class="tl__item reveal">
-        <span class="tl__dot" aria-hidden="true"></span>
-        <div class="tl__card glass">
-          <p class="tl__meta">2021 — 2022</p>
-          <h3 class="tl__title">Freelance Web Coder</h3>
-          <p class="tl__text">
-            Took on first paid client work: landing pages, small business sites and a few
-            Telegram bots. Learned scoping, quoting and how to say no to a project that is a
-            bad idea.
-          </p>
-          <div class="tag-row">
-            <span class="tag">HTML</span><span class="tag">CSS</span>
-            <span class="tag">JavaScript</span><span class="tag">WordPress</span>
-          </div>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     6 · SERVICES
-     ══════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="services" aria-labelledby="svcTitle">
-  <div class="container">
-    <header class="sec-head sec-head--center">
-      <p class="sec-head__index reveal"><span>05</span> Services</p>
-      <h2 class="sec-head__title reveal" id="svcTitle">What I can build for you</h2>
-      <p class="sec-head__sub reveal">Four things I do properly, rather than twenty things I do badly.</p>
-    </header>
-
-    <ul class="svc-grid">
-      <li class="svc glass reveal" data-tilt>
-        <span class="svc__num">01</span>
-        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-layers"/></svg>
-        <h3>Web Applications</h3>
-        <p>Full product builds — dashboards, portals, marketplaces — with authentication,
-           roles, payments and admin tooling. Designed as one coherent system rather than
-           a collection of pages.</p>
-        <ul class="tick-list">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> React · Next.js front end</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Node.js or Python API</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> PostgreSQL schema &amp; migrations</li>
-        </ul>
-      </li>
-
-      <li class="svc glass reveal" data-tilt>
-        <span class="svc__num">02</span>
-        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-server"/></svg>
-        <h3>APIs &amp; Backends</h3>
-        <p>REST or GraphQL services with validation, versioning, rate limiting and generated
-           documentation — plus the auth layer that keeps the boring stuff out of your hands.</p>
-        <ul class="tick-list">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> JWT / OAuth / sessions</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Swagger &amp; OpenAPI</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Caching &amp; background jobs</li>
-        </ul>
-      </li>
-
-      <li class="svc glass reveal" data-tilt>
-        <span class="svc__num">03</span>
-        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-bot"/></svg>
-        <h3>Telegram Bots</h3>
-        <p>Sales funnels, onboarding flows, reminders and internal tools. Dialogue state that
-           survives a restart, and payments wired through Click or Payme.</p>
-        <ul class="tick-list">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Inline keyboards &amp; flows</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Payment integration</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Admin panel + analytics</li>
-        </ul>
-      </li>
-
-      <li class="svc glass reveal" data-tilt>
-        <span class="svc__num">04</span>
-        <svg class="icon icon--lg" aria-hidden="true"><use href="#i-rocket"/></svg>
-        <h3>Landing Pages</h3>
-        <p>Fast, focused, conversion-oriented pages. Built to load in under a second, look
-           sharp on every screen, and be editable without a developer in the loop.</p>
-        <ul class="tick-list">
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Sub-second load target</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> SEO &amp; structured data</li>
-          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg> Analytics wired in</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     7 · TESTIMONIALS
-     ══════════════════════════════════════════════════════════════════════════ -->
-<section class="section" id="testimonials" aria-labelledby="tmTitle">
-  <div class="container">
-    <header class="sec-head sec-head--center">
-      <p class="sec-head__index reveal"><span>06</span> Kind words</p>
-      <h2 class="sec-head__title reveal" id="tmTitle">What clients say</h2>
-    </header>
-
-    <div class="quotes" id="quotes" data-autoplay="4200">
-      <div class="quotes__viewport">
-        <ul class="quotes__track">
-          <li class="quote glass" data-quote>
-            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-spark"/></svg>
-            <blockquote>
-              <p>Omadbek rebuilt our order system over a weekend and then explained every
-                 decision afterwards, in plain language. Our support tickets dropped by half.</p>
-            </blockquote>
-            <footer class="quote__by">
-              <span class="quote__avatar" aria-hidden="true">SN</span>
-              <span><strong>[CLIENT_NAME]</strong><small>[CLIENT_ROLE · COMPANY]</small></span>
-            </footer>
-          </li>
-          <li class="quote glass" data-quote>
-            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-spark"/></svg>
-            <blockquote>
-              <p>The API documentation alone saved us a week. Clean code, real tests, and
-                 a Docker Compose file that actually works on a clean machine.</p>
-            </blockquote>
-            <footer class="quote__by">
-              <span class="quote__avatar" aria-hidden="true">DK</span>
-              <span><strong>[CLIENT_NAME]</strong><small>[CLIENT_ROLE · COMPANY]</small></span>
-            </footer>
-          </li>
-          <li class="quote glass" data-quote>
-            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-spark"/></svg>
-            <blockquote>
-              <p>We asked for a landing page and got something that felt like a product.
-                 He pushed back on two of our ideas — correctly — and it made the result better.</p>
-            </blockquote>
-            <footer class="quote__by">
-              <span class="quote__avatar" aria-hidden="true">AO</span>
-              <span><strong>[CLIENT_NAME]</strong><small>[CLIENT_ROLE · COMPANY]</small></span>
-            </footer>
-          </li>
-          <li class="quote glass" data-quote>
-            <svg class="icon icon--lg" aria-hidden="true"><use href="#i-spark"/></svg>
-            <blockquote>
-              <p>Our Telegram bot went from idea to live in nine days. It has processed
-                 thousands of orders without a single double booking.</p>
-            </blockquote>
-            <footer class="quote__by">
-              <span class="quote__avatar" aria-hidden="true">JR</span>
-              <span><strong>[CLIENT_NAME]</strong><small>[CLIENT_ROLE · COMPANY]</small></span>
-            </footer>
-          </li>
-        </ul>
-      </div>
-
-      <div class="quotes__controls">
-        <button class="icon-btn" type="button" id="quotePrev" aria-label="Previous testimonial">
-          <svg class="icon" aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg>
-        </button>
-        <div class="quotes__dots" id="quoteDots" role="tablist" aria-label="Choose testimonial"></div>
-        <button class="icon-btn" type="button" id="quoteNext" aria-label="Next testimonial">
-          <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     8 · CONTACT
-     ══════════════════════════════════════════════════════════════════════════ -->
-<section class="section section--contact" id="contact" aria-labelledby="contactTitle">
-  <div class="container">
-    <div class="contact">
-      <div class="contact__copy">
-        <p class="sec-head__index reveal"><span>07</span> Contact</p>
-        <h2 class="sec-head__title reveal" id="contactTitle">
-          Let&#39;s build<br><em>something amazing</em>
-        </h2>
-        <p class="contact__lead reveal">
-          Got a project, a role, or a codebase that needs rescuing? Tell me about it —
-          I reply to every serious message within a day.
-        </p>
-
-        <ul class="contact__links reveal">
-          <li>
-            <a class="contact__link" href="mailto:omadbekxoshimov792@gmail.com">
-              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
-              <span><small>Email</small>omadbekxoshimov792@gmail.com</span>
-              <svg class="icon contact__go" aria-hidden="true"><use href="#i-arrow-out"/></svg>
-            </a>
-          </li>
-          <li>
-            <a class="contact__link" href="https://t.me/omadbek_xosh1mov" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg>
-              <span><small>Telegram</small>@omadbek_xosh1mov</span>
-              <svg class="icon contact__go" aria-hidden="true"><use href="#i-arrow-out"/></svg>
-            </a>
-          </li>
-          <li>
-            <a class="contact__link" href="https://github.com/omadbekxoshimov523-coder" target="_blank" rel="noopener noreferrer">
-              <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
-              <span><small>GitHub</small>omadbekxoshimov523-coder</span>
-              <svg class="icon contact__go" aria-hidden="true"><use href="#i-arrow-out"/></svg>
-            </a>
-          </li>
-          <li>
-            <span class="contact__link contact__link--static">
-              <svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>
-              <span><small>Based in</small>Tashkent, Uzbekistan · UTC+5</span>
-            </span>
-          </li>
-        </ul>
-
-        <div class="contact__social reveal">
-          <a class="social" href="https://github.com/omadbekxoshimov523-coder" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
-            <svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>
-          </a>
-          <a class="social" href="https://t.me/omadbek_xosh1mov" target="_blank" rel="noopener noreferrer" aria-label="Telegram profile">
-            <svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg>
-          </a>
-          <a class="social" href="https://www.linkedin.com/in/[YOUR_LINKEDIN]" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-            <svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>
-          </a>
-          <a class="social" href="https://www.instagram.com/[YOUR_INSTAGRAM]" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
-            <svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg>
-          </a>
-          <a class="social" href="mailto:omadbekxoshimov792@gmail.com" aria-label="Send an email">
-            <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Formspree works on static hosts — swap the ID for your own. -->
-      <form class="form glass reveal" id="contactForm"
-            action="https://formspree.io/f/[YOUR_FORMSPREE_ID]" method="POST" novalidate>
-        <h3 class="form__title">Send a message</h3>
-
-        <div class="field">
-          <label for="name">Your name</label>
-          <input id="name" name="name" type="text" autocomplete="name" required placeholder="Jane Doe">
-          <p class="field__error" data-error-for="name" aria-live="polite"></p>
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" autocomplete="email" required placeholder="jane@company.com">
-          <p class="field__error" data-error-for="email" aria-live="polite"></p>
-        </div>
-
-        <div class="field">
-          <label for="subject">Project type</label>
-          <select id="subject" name="subject">
-            <option value="Web application">Web application</option>
-            <option value="API / backend">API / backend</option>
-            <option value="Telegram bot">Telegram bot</option>
-            <option value="Landing page">Landing page</option>
-            <option value="Something else">Something else</option>
-          </select>
-        </div>
-
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Tell me what you're building…"></textarea>
-          <p class="field__error" data-error-for="message" aria-live="polite"></p>
-        </div>
-
-        <!-- Honeypot: bots fill it, humans never see it -->
-        <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-        <input type="hidden" name="_subject" value="New portfolio enquiry">
-        <!-- ↑ Replace the email address below with your own for Formspree notifications -->
-        <input type="hidden" name="_next" value="https://omadbekxoshimov.github.io/?sent=1">
-
-        <button class="btn btn--primary btn--block" type="submit" id="submitBtn" data-magnetic>
-          <span class="btn__label">Send message</span>
-          <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-        </button>
-
-        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
-        <p class="form__note">
-          Or email me directly at
-          <a href="mailto:omadbekxoshimov792@gmail.com">omadbekxoshimov792@gmail.com</a>
-        </p>
-      </form>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     FOOTER
-     ══════════════════════════════════════════════════════════════════════════ -->
-<footer class="footer">
-  <div class="footer__marquee" aria-hidden="true">
-    <div class="marquee" data-marquee data-speed="60">
-      <div class="marquee__track">
-        <span class="footer__word">Let&#39;s build something amazing</span>
-        <span class="footer__word">Let&#39;s build something amazing</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="container footer__inner">
-    <p class="footer__cta" aria-hidden="true">
-      Let&#39;s build<br><em>something amazing</em>
-    </p>
-
-    <div class="footer__bar">
-      <p>© <span id="year">2026</span> Xoshimov Omadbek. Built from scratch in Tashkent.</p>
-      <nav class="footer__nav" aria-label="Footer">
-        <a href="#about">About</a>
-        <a href="#projects">Work</a>
-        <a href="https://github.com/omadbekxoshimov523-coder" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://t.me/omadbek_xosh1mov" target="_blank" rel="noopener noreferrer">Telegram</a>
-      </nav>
-      <a class="to-top" href="#hero" data-magnetic aria-label="Back to top">
-        <svg class="icon" aria-hidden="true" style="transform:rotate(-90deg)"><use href="#i-arrow"/></svg>
-      </a>
-    </div>
-  </div>
-</footer>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     PROJECT MODAL (native <dialog> = free focus trap + Esc handling)
-     ══════════════════════════════════════════════════════════════════════════ -->
-<dialog class="modal" id="projectModal" aria-labelledby="modalTitle">
-  <div class="modal__panel">
-    <button class="icon-btn modal__close" type="button" id="modalClose" aria-label="Close case study" autofocus>
-      <svg class="icon" aria-hidden="true"><use href="#i-close"/></svg>
-    </button>
-
-    <div class="modal__scroll">
-      <div class="modal__media">
-        <img id="modalImg" src="assets/projects/01-nexus-commerce.svg" width="1200" height="750"
-             alt="" loading="lazy" decoding="async">
-      </div>
-      <div class="modal__body">
-        <p class="modal__eyebrow" id="modalEyebrow">Case study</p>
-        <h2 class="modal__title" id="modalTitle">Project</h2>
-        <p class="modal__meta" id="modalMeta"></p>
-        <p class="modal__text" id="modalText"></p>
-
-        <h3 class="modal__sub">What I did</h3>
-        <ul class="tick-list" id="modalList"></ul>
-
-        <h3 class="modal__sub">Stack</h3>
-        <div class="tag-row" id="modalTags"></div>
-
-        <div class="modal__links" id="modalLinks"></div>
-      </div>
-    </div>
-  </div>
-</dialog>
-
-<!-- ══════════════════════════════════════════════════════════════════════════
-     SCRIPTS
-     ══════════════════════════════════════════════════════════════════════════ -->
-<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
-<script defer src="js/main.js"></script>
-
+<script>
+"use strict";
+/* ============================================================================
+   PORTRAIT ENGINE
+   ----------------------------------------------------------------------------
+   Three modes, chosen automatically at load time:
+
+     1. FRAMES   — frames/frame_0001.jpg … frame_0120.jpg exist  → scrubbed
+                   frame-by-frame "video" driven by scroll position.
+     2. PHOTO    — no frames, but assets/me.jpeg exists          → the single
+                   photo is animated through 4 simulated poses.
+     3. EMPTY    — neither exists                               → loader finishes,
+                   a message is shown, nothing is drawn.
+
+   Scroll progress through the story (top of page → Projects section) is mapped
+   to a frame index, smoothed with lerp, and drawn with cover-fit scaling.
+   ========================================================================= */
+
+/* ---------------------------------------------------------------- constants - */
+const FRAME_COUNT   = 120;                                   // frames to preload
+const FRAME_PATH    = "frames/frame_%04d.jpg";               // printf-style name
+const PHOTO_PATH    = "assets/me.jpeg";                      // fallback photo
+const SCRUB_LERP    = 0.12;                                  // scrub smoothing
+const MAX_DPR       = 2;                                     // DPR cap (retina)
+const SAFETY_MS     = 8000;                                  // never hang on 0%
+const FRAME_FOCUS   = { x: 0.5,  y: 0.5  };                 // crop anchor: frames
+const PHOTO_FOCUS   = { x: 0.5,  y: 0.34 };                 // crop anchor: photo
+
+/* The four simulated poses used in PHOTO mode, evaluated along story progress:
+   front → turned right → turned left → close-up (glasses off), zoom 1.55.
+   zoom = scale, x/y = pan as a fraction of the viewport, rot = degrees.       */
+const POSES = [
+  { zoom: 1.00, x:  0.00, y:  0.00, rot:  0.0 },   // front
+  { zoom: 1.16, x: -0.11, y: -0.03, rot: -4.0 },   // turned to his right
+  { zoom: 1.16, x:  0.11, y: -0.03, rot:  4.0 },   // turned to his left
+  { zoom: 1.55, x:  0.00, y: -0.12, rot:  1.5 }    // leaning in, glasses off
+];
+
+const $  = (s, c = document) => c.querySelector(s);
+const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+const lerp  = (a, b, t) => a + (b - a) * t;
+const smoothstep = t => t * t * (3 - 2 * t);                 // classic easing
+const pad = n => String(n).padStart(4, "0");
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/* ------------------------------------------------------------- canvas setup */
+const stage   = $(".stage");
+const canvas  = $("#portrait");
+const ctx     = canvas.getContext("2d");
+let vw = 0, vh = 0, dpr = 1;
+
+function resizeCanvas(){
+  dpr = Math.min(window.devicePixelRatio || 1, MAX_DPR);      // DPR-aware, capped
+  vw = stage.clientWidth;
+  vh = stage.clientHeight;
+  canvas.width  = Math.round(vw * dpr);
+  canvas.height = Math.round(vh * dpr);
+  canvas.style.width  = vw + "px";
+  canvas.style.height = vh + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);                    // draw in CSS pixels
+}
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas, { passive: true });
+window.addEventListener("orientationchange", resizeCanvas, { passive: true });
+
+/* ------------------------------------------------- cover-fit drawing helpers */
+function coverRect(iw, ih, zoom, focus, panX, panY){
+  const s  = Math.max(vw / iw, vh / ih) * zoom;              // cover scale
+  const dw = iw * s, dh = ih * s;
+  let dx = vw / 2 - dw * focus.x + panX * vw;                // focus point → centre
+  let dy = vh / 2 - dh * focus.y + panY * vh;
+  // Clamp so the image always covers the viewport (no empty edges)
+  dx = dw <= vw ? (vw - dw) / 2 : Math.min(0, Math.max(vw - dw, dx));
+  dy = dh <= vh ? (vh - dh) / 2 : Math.min(0, Math.max(vh - dh, dy));
+  return { dx, dy, dw, dh };
+}
+
+function drawImageCover(img, zoom, focus, panX, panY, rotDeg){
+  const iw = img.naturalWidth  || img.width;
+  const ih = img.naturalHeight || img.height;
+  if (!iw || !ih) return;
+  const r = coverRect(iw, ih, zoom, focus, panX, panY);
+  ctx.save();
+  ctx.clearRect(0, 0, vw, vh);
+  if (rotDeg){ ctx.translate(vw / 2, vh / 2); ctx.rotate(rotDeg * Math.PI / 180);
+               ctx.translate(-vw / 2, -vh / 2); }
+  ctx.drawImage(img, r.dx, r.dy, r.dw, r.dh);
+  ctx.restore();
+}
+
+/* ------------------------------------------------------------- loader state */
+const loader    = $("#loader");
+const loaderPct = $("#loaderPct");
+const loaderBar = $("#loaderBar");
+const loaderNote= $("#loaderNote");
+
+function setProgress(p, note){
+  const pct = clamp(Math.round(p * 100), 0, 100);
+  loaderPct.textContent = pct;
+  loaderBar.style.width = pct + "%";
+  if (note) loaderNote.textContent = note;
+}
+function finishLoading(note){
+  setProgress(100, note || "Ready");
+  clearTimeout(safetyTimer);
+  setTimeout(() => {
+    loader.classList.add("is-done");
+    document.body.classList.remove("is-locked");
+  }, reduceMotion ? 0 : 420);
+  loader.setAttribute("aria-hidden", "true");
+}
+/* Hard guarantee: whatever happens, the loader never sits at 0% forever. */
+const safetyTimer = setTimeout(() => finishLoading("Ready"), SAFETY_MS);
+
+/* ----------------------------------------------------------- asset loading */
+let mode = "empty";                     // "frames" | "photo" | "empty"
+let frames = [];                        // Image[] in frame order
+let photo  = null;                      // Image for photo mode
+
+function probe(url){
+  return new Promise(resolve => {
+    const img = new Image();
+    img.decoding = "async";
+    img.onload  = () => resolve(img);
+    img.onerror = () => resolve(null);
+    img.src = url;
+  });
+}
+
+function loadFrames(){
+  return new Promise(resolve => {
+    frames = new Array(FRAME_COUNT);
+    let done = 0;
+    const tick = () => {
+      done++;
+      // Frames fill 5% → 92% of the bar
+      setProgress(0.05 + (done / FRAME_COUNT) * 0.87,
+                  "Frame " + done + " of " + FRAME_COUNT);
+      if (done === FRAME_COUNT) resolve(true);
+    };
+    for (let i = 1; i <= FRAME_COUNT; i++){
+      const img = new Image();
+      img.decoding = "async";
+      // Whether a frame loads or 404s we must advance, or loading stalls.
+      img.onload = img.onerror = () => { frames[i - 1] = img; tick(); };
+      img.src = FRAME_PATH.replace("%04d", pad(i));
+    }
+  });
+}
+
+async function initPortrait(){
+  document.body.classList.add("is-locked");
+  setProgress(2, "Checking frame sequence");
+
+  // 1) Do the frames exist?
+  const first = await probe(FRAME_PATH.replace("%04d", "0001"));
+  if (first && first.naturalWidth > 0){
+    frames[0] = first;
+    setProgress(5, "Frame 1 of " + FRAME_COUNT);
+    await loadFrames();
+    mode = "frames";
+    finishLoading("Frame sequence ready");
+    return;
+  }
+
+  // 2) No frames → fall back to the single photo.
+  setProgress(93, "No frame sequence — using photo");
+  const p = await probe(PHOTO_PATH);
+  if (p && p.naturalWidth > 0){
+    photo = p;
+    mode = "photo";
+    finishLoading("Photo mode — simulated poses");
+    return;
+  }
+
+  // 3) Neither asset exists: say so, but never hang.
+  mode = "empty";
+  stage.style.display = "none";
+  finishLoading("Portrait unavailable — add assets/me.jpeg");
+  console.warn("[portrait] No frames/ or assets/me.jpeg found. " +
+               "The page works without the portrait.");
+}
+
+/* ------------------------------------------------------ scroll → frame map */
+const storyEl   = $("#home");
+const steps     = $$(".step", storyEl);
+const projectsEl= $("#projects");
+const progressBar = $("#progressBar");
+const scrollHint  = $("#scrollHint");
+const navLinks  = $$("#navLinks a");
+
+let target = 0;      // where the playhead wants to be (0 … FRAME_COUNT-1)
+let shown  = 0;      // smoothed playhead actually drawn
+let storyProgress = 0;
+
+function readScroll(){
+  const y = window.scrollY || document.documentElement.scrollTop;
+
+  // Story ends where the Projects section begins.
+  const storyEnd = Math.max(1, projectsEl.offsetTop - window.innerHeight * 0.5);
+  storyProgress = clamp(y / storyEnd, 0, 1);
+  target = storyProgress * (FRAME_COUNT - 1);
+
+  // Thin gold progress bar = whole document
+  const docH = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (clamp(y / Math.max(1, docH), 0, 1) * 100) + "%";
+
+  // Scroll hint retires after the first real scroll
+  scrollHint.classList.toggle("is-hidden", y > 40);
+
+  // Active story step = the one covering the viewport's middle
+  const mid = y + window.innerHeight * 0.5;
+  let best = 0, bestD = Infinity;
+  steps.forEach((s, i) => {
+    const c = s.offsetTop + s.offsetHeight / 2;
+    const d = Math.abs(c - mid);
+    if (d < bestD){ bestD = d; best = i; }
+  });
+  steps.forEach((s, i) => s.classList.toggle("is-active", i === best));
+
+  // Nav highlighting
+  const navY = y + window.innerHeight * 0.35;
+  let currentId = "";
+  ["about","skills","projects","tech","timeline","contact"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.offsetTop <= navY) currentId = id;
+  });
+  navLinks.forEach(a => {
+    const href = a.getAttribute("href");
+    const on = href === "#" + currentId || (currentId === "" && href === "#home");
+    a.classList.toggle("is-current", on);
+  });
+
+  drawTimelineLine();
+}
+
+/* ---------------------------------------------- timeline line draws on scroll */
+const timelineEl = $("#timeline");
+function drawTimelineLine(){
+  if (!timelineEl) return;
+  const r = timelineEl.getBoundingClientRect();
+  const anchor = window.innerHeight * 0.72;                  // draw up to this line
+  const total  = r.height;
+  const p = clamp((anchor - r.top) / Math.max(1, total), 0, 1);
+  // --draw is consumed by .timeline::after
+  timelineEl.style.setProperty("--draw", (p * total).toFixed(1) + "px");
+  $$(".tl-item", timelineEl).forEach(item => {
+    const ir = item.getBoundingClientRect();
+    item.classList.toggle("is-lit", ir.top <= anchor);
+  });
+}
+
+/* --------------------------------------------------------------- render loop */
+function render(){
+  // Lerp smoothing — scrubbed playback instead of jumpy steps
+  if (reduceMotion) shown = target;
+  else shown += (target - shown) * SCRUB_LERP;
+
+  if (mode === "frames"){
+    const img = frames[Math.round(clamp(shown, 0, FRAME_COUNT - 1))];
+    if (img && img.naturalWidth) drawImageCover(img, 1, FRAME_FOCUS, 0, 0, 0);
+  } else if (mode === "photo" && photo){
+    // Interpolate between the four poses, eased
+    const seg   = storyProgress * (POSES.length - 1);
+    const i     = clamp(Math.floor(seg), 0, POSES.length - 2);
+    const t     = smoothstep(clamp(seg - i, 0, 1));
+    const a = POSES[i], b = POSES[i + 1];
+    drawImageCover(photo, lerp(a.zoom, b.zoom, t), PHOTO_FOCUS,
+                   lerp(a.x, b.x, t), lerp(a.y, b.y, t), lerp(a.rot, b.rot, t));
+  }
+  requestAnimationFrame(render);
+}
+
+/* ============================================================================
+   UI DATA
+   ========================================================================= */
+const SKILLS = [
+  { k:"FE", t:"Frontend",  items:["HTML","CSS","JavaScript","React"] },
+  { k:"BE", t:"Backend",   items:["Python","Node.js"] },
+  { k:"DB", t:"Database",  items:["PostgreSQL","SQLite"] },
+  { k:"MB", t:"Mobile",    items:["Flutter / Android"] },
+  { k:"TL", t:"Tools",     items:["Git","GitHub","Docker"] },
+  { k:"AI", t:"AI",        items:["AI tools","prompt engineering"] }
+];
+
+const TECH = ["Python","JavaScript","Flutter","React","SQLite","PostgreSQL",
+              "Git","GitHub","Firebase","AI"];
+
+/* Projects — every unknown value is marked with [BRACKETS] so it is obvious
+   what still has to be filled in (screenshot file, repo URL, APK, features).  */
+const PROJECTS = [
+  {
+    name: "TEZ E'LON BOT",
+    monogram: "TE",
+    status: "Live",
+    desc: "Telegram advertising bot that publishes and manages announcements directly inside Telegram.",
+    detail: "[ADD 2–3 SENTENCE DESCRIPTION: what the bot does, who uses it, which channels it serves and how it is monetised.]",
+    tech: ["Python", "python-telegram-bot", "SQLite"],
+    features: [
+      "[FEATURE 1 — e.g. channel / group advertising posts]",
+      "[FEATURE 2 — e.g. inline posting and media attachments]",
+      "[FEATURE 3 — e.g. user roles, limits and admin panel]",
+      "[FEATURE 4 — e.g. statistics for each advertiser]"
+    ],
+    links: [
+      { label:"Telegram", url:"https://t.me/ElonTez_bot" },
+      { label:"GitHub",   url:"[GITHUB URL]" },
+      { label:"Demo / APK", url:"[DEMO OR APK URL]" }
+    ],
+    shot: "[assets/projects/tez-elon.jpg]"
+  },
+  {
+    name: "Avto Maktab Platformasi",
+    monogram: "AM",
+    status: "Live",
+    desc: "Management platform for a driving school — students, groups, schedules and payments in one place.",
+    detail: "[ADD 2–3 SENTENCE DESCRIPTION: how the driving school runs on it — course groups, instructor assignment, attendance, exam tracking, payments.]",
+    tech: ["Python", "Telegram Bot API", "PostgreSQL"],
+    features: [
+      "[FEATURE 1 — e.g. student registration and group assignment]",
+      "[FEATURE 2 — e.g. lesson schedule and attendance]",
+      "[FEATURE 3 — e.g. payment and balance tracking]",
+      "[FEATURE 4 — e.g. admin panel with reports]"
+    ],
+    links: [
+      { label:"Telegram", url:"https://t.me/Avto_Platforma_bot" },
+      { label:"GitHub",   url:"[GITHUB URL]" },
+      { label:"Demo / APK", url:"[DEMO OR APK URL]" }
+    ],
+    shot: "[assets/projects/avto-maktab.jpg]"
+  },
+  {
+    name: "SmartVision AI",
+    monogram: "SV",
+    status: "Concept",
+    desc: "AI security concept — camera and event analysis that flags unusual activity automatically.",
+    detail: "[ADD 2–3 SENTENCE DESCRIPTION: the AI security concept, which models are used and what the bot reports back to the user.]",
+    tech: ["Python", "OpenCV", "AI models", "Telegram Bot API"],
+    features: [
+      "[FEATURE 1 — e.g. motion and intrusion detection]",
+      "[FEATURE 2 — e.g. instant Telegram alerts with a snapshot]",
+      "[FEATURE 3 — e.g. event log and daily report]",
+      "[FEATURE 4 — e.g. multi-camera support]"
+    ],
+    links: [
+      { label:"Telegram", url:"https://t.me/Smart_Vision1_bot" },
+      { label:"GitHub",   url:"[GITHUB URL]" },
+      { label:"Demo / APK", url:"[DEMO OR APK URL]" }
+    ],
+    shot: "[assets/projects/smartvision.jpg]"
+  },
+  {
+    name: "Farg'ona Beshariq bot",
+    monogram: "FB",
+    status: "Live",
+    desc: "Telegram bot serving the Farg'ona Beshariq community with quick, useful everyday services.",
+    detail: "[ADD 2–3 SENTENCE DESCRIPTION: what the bot offers the community and how people use it day to day.]",
+    tech: ["Python", "SQLite", "Telegram Bot API"],
+    features: [
+      "[FEATURE 1 — e.g. the bot's main menu and requests]",
+      "[FEATURE 2 — e.g. content publishing for the community]",
+      "[FEATURE 3 — e.g. user data stored in SQLite]"
+    ],
+    links: [
+      { label:"Telegram", url:"https://t.me/FARGONA_BESHAR1Q_bot" },
+      { label:"GitHub",   url:"[GITHUB URL]" },
+      { label:"Demo / APK", url:"[DEMO OR APK URL]" }
+    ],
+    shot: "[assets/projects/beshariq.jpg]"
+  },
+  {
+    name: "[PROJECT NAME]",
+    monogram: "P5",
+    status: "Planned",
+    desc: "[SHORT DESCRIPTION — one line about the project idea.]",
+    detail: "[ADD 2–3 SENTENCES: the problem it solves and who it is for.]",
+    tech: ["[TECH 1]","[TECH 2]"],
+    features: ["[FEATURE 1]","[FEATURE 2]","[FEATURE 3]"],
+    links: [
+      { label:"GitHub", url:"[GITHUB URL]" },
+      { label:"Demo / APK", url:"[DEMO URL]" }
+    ],
+    shot: "[assets/projects/future-1.jpg]"
+  },
+  {
+    name: "[PROJECT NAME]",
+    monogram: "P6",
+    status: "Planned",
+    desc: "[SHORT DESCRIPTION — one line about the project idea.]",
+    detail: "[ADD 2–3 SENTENCES: the problem it solves and who it is for.]",
+    tech: ["[TECH 1]","[TECH 2]"],
+    features: ["[FEATURE 1]","[FEATURE 2]","[FEATURE 3]"],
+    links: [
+      { label:"GitHub", url:"[GITHUB URL]" },
+      { label:"Demo / APK", url:"[DEMO URL]" }
+    ],
+    shot: "[assets/projects/future-2.jpg]"
+  }
+];
+
+const isPlaceholder = s => typeof s === "string" && s.indexOf("[") !== -1;
+
+function buildLink(l){
+  const a = document.createElement("a");
+  a.className = "pill" + (isPlaceholder(l.url) ? " pill--ghost" : "");
+  a.textContent = l.label;
+  if (isPlaceholder(l.url)){
+    a.href = "#";                                  // not filled in yet
+    a.setAttribute("aria-disabled", "true");
+    a.addEventListener("click", e => e.preventDefault());
+  } else {
+    a.href = l.url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+  }
+  return a;
+}
+
+/* ------------------------------------------------------- render: skills ---- */
+(function renderSkills(){
+  const grid = $("#skillsGrid");
+  SKILLS.forEach(s => {
+    const card = document.createElement("article");
+    card.className = "card tilt";
+    card.setAttribute("data-tilt", "");
+    card.innerHTML =
+      '<div class="card__row"><div class="tile" aria-hidden="true"></div>' +
+      '<h3 class="card__title"></h3></div><ul></ul>';
+    card.querySelector(".tile").textContent = s.k;
+    card.querySelector(".card__title").textContent = s.t;
+    const ul = card.querySelector("ul");
+    s.items.forEach(i => {
+      const li = document.createElement("li");
+      li.textContent = i;
+      ul.appendChild(li);
+    });
+    grid.appendChild(card);
+  });
+})();
+
+/* ----------------------------------------------------- render: projects ---- */
+const projectCards = [];
+(function renderProjects(){
+  const grid = $("#projectsGrid");
+  PROJECTS.forEach((p, i) => {
+    const card = document.createElement("article");
+    card.className = "card project tilt";
+    card.setAttribute("data-tilt", "");
+    card.tabIndex = 0;
+    card.setAttribute("role", "button");
+    card.setAttribute("aria-label", "Open details for " + p.name);
+
+    const shot = document.createElement("figure");
+    shot.className = "project__shot";
+    shot.style.margin = "0";
+    const tile = document.createElement("div");
+    tile.className = "tile";
+    tile.textContent = p.monogram;
+    tile.setAttribute("aria-hidden", "true");
+    const cap = document.createElement("figcaption");
+    cap.textContent = p.shot;
+    shot.append(tile, cap);
+
+    const status = document.createElement("span");
+    status.className = "status";
+    status.textContent = p.status;
+    shot.appendChild(status);
+
+    const body = document.createElement("div");
+    body.className = "project__body";
+
+    const h3 = document.createElement("h3");
+    h3.className = "project__name";
+    h3.textContent = p.name;
+
+    const desc = document.createElement("p");
+    desc.className = "project__desc";
+    desc.textContent = p.desc;
+
+    const tech = document.createElement("div");
+    tech.className = "project__tech";
+    p.tech.forEach(t => {
+      const s = document.createElement("span");
+      s.className = "tag";
+      s.textContent = t;
+      tech.appendChild(s);
+    });
+
+    const links = document.createElement("div");
+    links.className = "project__links";
+    p.links.forEach(l => links.appendChild(buildLink(l)));
+
+    body.append(h3, desc, tech, links);
+    card.append(shot, body);
+
+    const open = e => {
+      // Let real links work; open the modal for everything else
+      if (e.target.closest("a")) return;
+      openModal(i);
+    };
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " "){ e.preventDefault(); openModal(i); }
+    });
+
+    grid.appendChild(card);
+    projectCards.push(card);
+  });
+})();
+
+/* -------------------------------------------------- render: tech marquee ---- */
+(function renderMarquee(){
+  const m = $("#marquee");
+  const track = document.createElement("div");
+  track.className = "marquee__track";
+  // Two identical runs so the -50% translate loops seamlessly
+  for (let pass = 0; pass < 2; pass++){
+    TECH.forEach(t => {
+      const s = document.createElement("span");
+      s.className = "marquee__item";
+      s.textContent = t;
+      s.setAttribute("aria-hidden", pass === 1 ? "true" : "false");
+      track.appendChild(s);
+    });
+  }
+  m.appendChild(track);
+})();
+
+/* ============================================================================
+   MODAL
+   ========================================================================= */
+const modal = $("#modal");
+let lastFocused = null;
+
+function openModal(i){
+  const p = PROJECTS[i];
+  lastFocused = document.activeElement;
+  $("#modalTitle").textContent = p.name;
+  $("#modalDesc").textContent  = p.detail;
+
+  const tech = $("#modalTech"); tech.innerHTML = "";
+  p.tech.forEach(t => {
+    const s = document.createElement("span"); s.textContent = t; tech.appendChild(s);
+  });
+
+  const feats = $("#modalFeatures"); feats.innerHTML = "";
+  p.features.forEach(f => {
+    const li = document.createElement("li"); li.textContent = f; feats.appendChild(li);
+  });
+
+  $("#modalShot").textContent = "Screenshot placeholder · " + p.shot;
+
+  const links = $("#modalLinks"); links.innerHTML = "";
+  p.links.forEach(l => links.appendChild(buildLink(l)));
+
+  modal.hidden = false;
+  requestAnimationFrame(() => modal.classList.add("is-open"));
+  document.body.classList.add("is-locked");
+  $("#modalClose").focus();
+}
+function closeModal(){
+  modal.classList.remove("is-open");
+  document.body.classList.remove("is-locked");
+  setTimeout(() => { modal.hidden = true; }, reduceMotion ? 0 : 320);
+  if (lastFocused) lastFocused.focus();
+}
+$("#modalClose").addEventListener("click", closeModal);
+modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && modal.classList.contains("is-open")) closeModal();
+});
+
+/* ============================================================================
+   3D TILT + GOLD SPOTLIGHT on cards
+   ========================================================================= */
+const MAX_TILT = 9;          // degrees — subtle, not showy
+$$("[data-tilt]").forEach(card => {
+  if (reduceMotion) return;                       // no tilt when motion is reduced
+  let raf = 0, tx = 0, ty = 0;
+
+  card.addEventListener("pointermove", e => {
+    const r = card.getBoundingClientRect();
+    // Clamped so a pointer outside the card can't throw the spotlight off-centre
+    const px = clamp((e.clientX - r.left) / r.width,  0, 1);   // 0 … 1
+    const py = clamp((e.clientY - r.top)  / r.height, 0, 1);
+    card.style.setProperty("--mx", (px * 100).toFixed(1) + "%");
+    card.style.setProperty("--my", (py * 100).toFixed(1) + "%");
+    tx = (0.5 - py) * 2 * MAX_TILT;               // rotateX
+    ty = (px - 0.5) * 2 * MAX_TILT;               // rotateY
+    if (!raf) raf = requestAnimationFrame(() => {
+      card.style.transform =
+        "perspective(700px) rotateX(" + tx.toFixed(2) + "deg) rotateY(" + ty.toFixed(2) + "deg)";
+      raf = 0;
+    });
+  });
+
+  card.addEventListener("pointerleave", () => {
+    card.style.transform = "perspective(700px) rotateX(0deg) rotateY(0deg)";
+  });
+});
+
+/* ============================================================================
+   BOOT
+   ========================================================================= */
+let scrollRaf = 0;
+window.addEventListener("scroll", () => {
+  if (scrollRaf) return;                          // throttle to one frame
+  scrollRaf = requestAnimationFrame(() => { readScroll(); scrollRaf = 0; });
+}, { passive: true });
+
+readScroll();
+render();                                        // start the portrait loop
+initPortrait().catch(err => {
+  console.error("[portrait] failed:", err);
+  mode = "empty";
+  finishLoading("Portrait unavailable");
+});
+</script>
 </body>
 </html>

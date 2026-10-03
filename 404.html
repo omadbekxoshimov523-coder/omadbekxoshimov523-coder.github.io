@@ -1,65 +1,41 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Page not found (404) — Xoshimov Omadbek</title>
-<meta name="description" content="That page does not exist. Head back to the portfolio home page.">
-<meta name="robots" content="noindex, follow">
-<meta name="color-scheme" content="dark light">
-<meta name="theme-color" content="#07070b">
-<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="canonical" href="https://omadbekxoshimov.github.io/404.html">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap">
-<!-- Reuse the site stylesheet, then a small page-specific override block. -->
-<link rel="stylesheet" href="/css/styles.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Xoshimov Omadbek</title>
+<meta name="robots" content="noindex">
 <style>
-  .e404 {
-    display: grid;
-    place-content: center;
-    justify-items: center;
-    gap: 1.4rem;
-    min-height: 100svh;
-    padding: 2rem 1.25rem;
-    text-align: center;
+  /* Self-contained 404 so it never depends on the site's assets. */
+  :root{ --bg:#05070d; --gold:#d9b46a; --cream:#f3efe6; --muted:#9aa4b2; }
+  *{box-sizing:border-box}
+  body{
+    margin:0;min-height:100vh;display:grid;place-items:center;text-align:center;
+    background:var(--bg);color:var(--cream);padding:24px;
+    font-family:Manrope,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   }
-  .e404__code {
-    font-family: var(--font-display);
-    font-size: clamp(5rem, 22vw, 11rem);
-    font-weight: 700;
-    line-height: 0.9;
-    letter-spacing: -0.06em;
-    background: linear-gradient(120deg, #a78bfa, #7c3aed 55%, #22d3ee);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+  .wrap{max-width:46ch}
+  h1{
+    font-family:Syne,system-ui,sans-serif;font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(4rem,20vw,9rem);line-height:.9;margin:0;
+    background:linear-gradient(135deg,#8fb4d9,#d9b46a);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .e404 h1 { font-size: clamp(1.4rem, 4vw, 2rem); letter-spacing: -0.03em; }
-  .e404 p { max-width: 42ch; color: var(--text-dim); }
-  .e404__actions { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; }
+  p{color:var(--muted);margin:18px 0 30px}
+  a{
+    display:inline-block;padding:14px 28px;border-radius:999px;
+    background:var(--gold);color:#14100a;font-weight:700;text-decoration:none;
+    transition:transform .25s ease,background .25s ease;
+  }
+  a:hover{transform:translateY(-2px);background:#e6c583}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 </style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-
-  <main id="main" class="e404">
-    <p class="e404__code">404</p>
-    <h1>This page slipped off the stack</h1>
-    <p>
-      The URL you followed doesn’t exist. The portfolio, the case studies and the
-      contact form all live on one page.
-    </p>
-    <div class="e404__actions">
-      <a class="btn btn--primary" href="/">
-        <svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Back to home
-      </a>
-      <a class="btn btn--ghost" href="https://github.com/omadbekxoshimov523-coder" target="_blank" rel="noopener noreferrer">
-        GitHub profile
-      </a>
-    </div>
-  </main>
+  <div class="wrap">
+    <h1>404</h1>
+    <p>This page does not exist — but the portfolio does. Head back home.</p>
+    <a href="/">Back to the portfolio</a>
+  </div>
 </body>
 </html>
