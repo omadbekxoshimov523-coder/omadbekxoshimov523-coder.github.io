@@ -3,6 +3,11 @@
 Single-page portfolio for a Software Engineering student. One `index.html` with
 all CSS and JavaScript inline: no frameworks, no build step, no dependencies.
 
+**Live:** https://omadbekxoshimov523-coder.github.io/erkinjon/
+
+Published from the repository root by `.github/workflows/pages.yml` — every push
+to `main` rebuilds and republishes it within ~20 seconds.
+
 Open it through a local server:
 
 ```bash
